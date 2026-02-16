@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كلمة السيد وزير الصناعة الصيدلانية</title>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e6edf6;
+      --card:#ffffff;
+      --accent:#0b6b3a;
+      --accent2:#0b5bd3;
+      --accent3:#6a3bd3;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+      color: var(--ink);
+      line-height: 2;
+      padding: 36px 16px;
+
+      /* خلفية متدرجة شفافة وخفيفة */
+      background:
+        radial-gradient(900px 500px at 85% 20%, rgba(11,91,211,0.10), transparent 60%),
+        radial-gradient(900px 500px at 15% 80%, rgba(11,107,58,0.10), transparent 60%),
+        linear-gradient(135deg, rgba(248,250,252,1) 0%, rgba(245,247,255,1) 50%, rgba(246,255,248,1) 100%);
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* بطاقة خارجية */
+    .paper{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(230,237,246,0.95);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.10);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    /* شريط علوي */
+    .topbar{
+      height: 12px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+    }
+
+    .content{
+      padding: 46px 56px;
+      position: relative;
+    }
+
+    /* إطار داخلي للنص + شريط جانبي */
+    .frame{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 26px 22px;
+      background: rgba(255,255,255,0.98);
+      position: relative;
+    }
+
+    .frame::before{
+      content:"";
+      position:absolute;
+      top:14px;
+      bottom:14px;
+      right:14px; /* شريط جانبي */
+      width:6px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
+      opacity: .9;
+    }
+
+    header{
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    h1{
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      margin-top: 8px;
+      color: var(--ink);
+    }
+
+    .subtitle{
+      margin-top: 8px;
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 18px 0 22px;
+    }
+
+    p{
+      font-size: 18px;
+      margin: 0 0 14px 0;
+      text-align: justify;
+      color: var(--ink);
+    }
+
+    /* تلوين كلمات/مصطلحات */
+    .kw{ color: var(--accent2); font-weight: 800; }
+    .org{ color: var(--accent); font-weight: 800; }
+    .doc{ color: #7c2d12; font-weight: 900; } /* لون بني رسمي للعنوان */
+
+    .section-title{
+      margin: 18px 0 10px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    ul{
+      margin: 8px 0 0;
+      padding-right: 22px;
+      font-size: 18px;
+      color: var(--ink);
+    }
+    li{ margin: 8px 0; }
+
+    .signature{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .signature span{
+      color: var(--accent2);
+      font-weight: 900;
+    }
+
+    .actions{
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration:none;
+      font-weight: 800;
+      border: 1px solid rgba(230,237,246,1);
+      background: rgba(255,255,255,0.95);
+      color: var(--ink);
+    }
+
+    .btn.primary{
+      background: linear-gradient(90deg, var(--accent) 0%, #0a7a44 100%);
+      color:#fff;
+      border: none;
+    }
+
+    .btn:hover{ transform: translateY(-1px); transition: .15s; }
+
+    @media (max-width: 768px){
+      .content{ padding: 26px 18px; }
+      .frame{ padding: 18px; }
+      p, ul{ font-size: 16px; }
+      h1{ font-size: 20px; }
+    }
+
+    @media print{
+      body{ background:#fff; padding:0; }
+      .paper{ box-shadow:none; border:none; border-radius:0; }
+      .topbar{ display:none; }
+      .actions{ display:none; }
+      .content{ padding: 18px; }
+      .frame{ border: 1px solid #ddd; }
+      .frame::before{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="paper">
+      <div class="topbar"></div>
+
+      <div class="content">
+        <header>
+          <h1>كلمة السيد وزير الصناعة الصيدلانية</h1>
+          <div class="subtitle"></div>
+        </header>
+
+        <div class="frame">
+          <div class="divider"></div>
+
+          <p>
+            في إطار ترقية وازدهار اللغة العربية المكرّسة دستورياً، نفخر بإنجاز هذا المؤلَّف العلمي والتقني
+            الموسوم بـ: <span class="doc">قاموس مصطلحات الصناعة الصيدلانية</span>، والذي جاء استجابةً لرغبة مشتركة
+            بين <span class="org">وزارة الصناعة الصيدلانية</span> و<span class="org">المجلس الأعلى للغة العربية</span>.
+          </p>
+
+          <p>
+            إن هذا المؤلَّف يكتسي أهمية بالغة، وكانت من أولى اهتمامات الخبراء في المجال الصيدلاني، لا سيما في ظل
+            <span class="kw">التعدد اللغوي</span> و<span class="kw">الاختلاف في استخدام المفردات التقنية</span> بين الفاعلين في هذا المجال؛
+            فالمصطلحات ليست مجرد كلمات، بل هي أدوات أساسية للفهم والتواصل الدقيق بين المختصين، سواء في مجال التصنيع
+            الصيدلاني أو التشريعات المتعلقة به، وأيضاً في مجال البحث العلمي.
+          </p>
+
+          <p>
+            استمر جمع المصطلحات الصيدلانية وتصنيفها حسب كل مجال استعمالها مدة سنة كاملة، من طرف فوج مكوّن من أكاديميين
+            وخبراء في مجال الصيدلة، من مختلف المؤسسات ذات الصلة؛ <span class="org">وزارة الصناعة الصيدلانية</span>،
+            و<span class="org">الوكالة الوطنية للمواد الصيدلانية</span>، وكذا <span class="org">المجمع الصناعي (صيدال)</span>،
+            تحت إشراف وتنسيق <span class="org">المجلس الأعلى للغة العربية</span>.
+          </p>
+
+          <p>
+            سهر أعضاء الفوج على إعداد قاموس مصطلحات الصناعة الصيدلانية بثلاث لغات: (الفرنسية، العربية،
+            والإنگليزيّة)، ووضعوا نصب أعينهم الدقة العلمية والمرجعية الدولية والوضوح في العرض؛ بما يمكّن من تقريب
+            المصطلح إلى الطالب والمهني والباحث، على حد سواء.
+          </p>
+
+          <div class="section-title">الأهداف</div>
+          <ul>
+            <li>توحيد المصطلحات الصيدلانية المعتمدة محلياً وعالمياً.</li>
+            <li>تعزيز الفهم والتكوين الأكاديمي للطلبة في كليات الصيدلة، والطب والعلوم ذات الصلة.</li>
+            <li>تسهيل الترجمة العلمية والطبية.</li>
+            <li>المساهمة في تطوير المحتوى المعرفي الصيدلاني باللغة العربية أو اللغات المعتمدة في الإصدار.</li>
+          </ul>
+
+          <div class="signature">
+            وزير الصناعة الصيدلانية<br />
+            <span>الدكتور وسيم قويدري</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="index.html">العودة إلى الصفحة الرئيسية</a>
+          <a class="btn primary" href="#" onclick="window.print(); return false;">طباعة</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

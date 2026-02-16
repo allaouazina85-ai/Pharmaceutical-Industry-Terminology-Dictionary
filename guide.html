@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دليل تشفير الرموز الموظّفة في المعجم</title>
+
+  <!-- خط Amiri -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: "Amiri", serif;
+      color:#111;
+      padding: 26px 14px;
+      background: linear-gradient(135deg, #f5fbff, #e8fff4, #fff6e7);
+    }
+
+    .paper{
+      width: min(900px, 96vw);
+      margin: 0 auto;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fffb 100%);
+      border: 3px solid rgba(15,118,110,0.55);
+      outline: 8px solid rgba(255,215,0,0.18);
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+      padding: 26px 22px 18px;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .page-title{
+      font-size: 28px;
+      line-height: 1.4;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .symbols-table{
+      width: 70%;
+      margin: 10px auto 0;
+      border-collapse: collapse;
+      border: 1px solid #2a2a2a;
+      direction: rtl;
+      background:#fff;
+    }
+    .symbols-table th,
+    .symbols-table td{
+      border: 1px solid #2a2a2a;
+      padding: 8px 10px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .symbols-table thead th{
+      background: #0f766e;
+      color: #fff;
+      font-weight: 700;
+    }
+    .symbols-table td.sym{
+      text-align: center;
+      font-weight: 700;
+      width: 32%;
+      white-space: nowrap;
+    }
+    .symbols-table td.ex{
+      text-align: right;
+      width: 68%;
+    }
+    .symbols-table tbody tr:nth-child(even){
+      background: #f3f3f3;
+    }
+
+    .roman-title{
+      margin: 18px 0 10px;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .roman-table{
+      width: 70%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      border: 1px solid #2a2a2a;
+      direction: rtl;
+      background:#fff;
+    }
+    .roman-table th,
+    .roman-table td{
+      border: 1px solid #2a2a2a;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 18px;
+    }
+    .roman-table thead th{
+      background: #0f766e;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .note{
+      width: 70%;
+      margin: 10px auto 0;
+      font-size: 17px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* ===== الأزرار ===== */
+    .back-wrap{
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap; /* مهم لتوافق الهاتف */
+    }
+
+    .back-btn{
+      text-decoration:none;
+      background:#0f766e;
+      color:#fff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight:700;
+      transition: transform .15s ease, filter .15s ease;
+      border:none;
+      cursor:pointer;
+      display:inline-block;
+      text-align:center;
+      min-width: 150px;
+    }
+
+    .back-btn:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    @media (max-width: 768px){
+      .symbols-table, .roman-table, .note{ width: 95%; }
+      .page-title{ font-size: 24px; }
+      .symbols-table th, .symbols-table td{ font-size: 16px; }
+      .roman-table th, .roman-table td{ font-size: 16px; }
+    }
+
+    @media (max-width: 480px){
+      .back-btn{
+        flex: 1 1 100%;
+      }
+    }
+
+    @media print{
+      .back-wrap{
+        display:none;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <main class="paper">
+    <h1 class="page-title">دليل تشفير الرموز الموظّفة في<br>المعجم</h1>
+
+    <table class="symbols-table">
+      <thead>
+        <tr>
+          <th>الرّمز/ الصّوت</th>
+          <th>مثال</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="sym">ﮒ = G</td><td class="ex">مثال: ورگلة (Ouargla)</td></tr>
+        <tr><td class="sym">ﭪ = V</td><td class="ex">مثال: كوڤيد (Covide)</td></tr>
+        <tr><td class="sym">پ = P</td><td class="ex">مثال: پرلمان (Parlement)</td></tr>
+        <tr><td class="sym">ݘ = J</td><td class="ex">مثال: ݘنات (Djanet)</td></tr>
+        <tr><td class="sym">ژ = z</td><td class="ex">مثال: أژكا (لفظ في المازيغيّة)</td></tr>
+        <tr><td class="sym">/</td><td class="ex">أو</td></tr>
+        <tr><td class="sym">مص</td><td class="ex">مصدر</td></tr>
+        <tr><td class="sym">ج</td><td class="ex">جمع</td></tr>
+      </tbody>
+    </table>
+
+    <div class="roman-title">(أرقام رُومانيّة)</div>
+    <table class="roman-table">
+      <thead>
+        <tr>
+          <th>10</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ⅹ</td><td>Ⅸ</td><td>Ⅷ</td><td>Ⅶ</td><td>Ⅵ</td><td>Ⅴ</td><td>Ⅳ</td><td>Ⅲ</td><td>Ⅱ</td><td>Ⅰ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="note">
+      تُستخدم في التّواريخ والقرون (القرن Ⅷ) وألقاب الملوك (الملك يوبا Ⅰ، الملك يوبا Ⅱ).
+    </p>
+
+    <!-- الأزرار الثلاثة في مستوى واحد -->
+    <div class="back-wrap">
+      <button class="back-btn" onclick="downloadPage()">تحميل الصفحة</button>
+      <button class="back-btn" onclick="window.print()">طباعة الصفحة</button>
+      <a class="back-btn" href="index.html">العودة إلى الصفحة الرئيسية</a>
+    </div>
+
+  </main>
+
+  <script>
+    function downloadPage() {
+      const content = document.documentElement.outerHTML;
+      const blob = new Blob([content], { type: "text/html" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "dalil-tachfir.html";
+      link.click();
+    }
+  </script>
+</body>
+</html>

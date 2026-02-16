@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كلمة المنسّقة العامّة للمشروع</title>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e6edf6;
+      --card: rgba(255,255,255,0.92);
+      --accent:#0b6b3a;
+      --accent2:#0b5bd3;
+      --accent3:#6a3bd3;
+      --doc:#7c2d12;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+      color: var(--ink);
+      line-height: 2;
+      padding: 36px 16px;
+
+      background:
+        radial-gradient(900px 520px at 85% 18%, rgba(11,91,211,0.10), transparent 60%),
+        radial-gradient(900px 520px at 15% 82%, rgba(11,107,58,0.10), transparent 60%),
+        linear-gradient(135deg, rgba(248,250,252,1) 0%, rgba(245,247,255,1) 50%, rgba(246,255,248,1) 100%);
+    }
+
+    .wrap{ max-width: 980px; margin: 0 auto; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(230,237,246,0.95);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.10);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar{
+      height: 12px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+    }
+
+    .content{ padding: 46px 56px; }
+
+    header{ text-align:center; margin-bottom: 18px; }
+    h1{ font-size: 26px; font-weight: 900; margin-top: 6px; }
+    .sub{ margin-top: 8px; font-size: 16px; color: var(--muted); font-weight: 700; }
+
+    .frame{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 26px 22px;
+      background: rgba(255,255,255,0.98);
+      position: relative;
+    }
+
+    .frame::before{
+      content:"";
+      position:absolute;
+      top:14px; bottom:14px; right:14px;
+      width:6px; border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
+      opacity: .9;
+    }
+
+    .divider{ height:1px; background: var(--line); margin: 18px 0 22px; }
+
+    p{
+      font-size: 18px;
+      margin: 0 0 14px 0;
+      text-align: justify;
+      color: var(--ink);
+    }
+
+    .kw{ color: var(--accent2); font-weight: 800; }
+    .org{ color: var(--accent); font-weight: 800; }
+    .doc{ color: var(--doc); font-weight: 900; }
+
+    .signature{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .signature .name{ color: var(--accent2); }
+
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration:none;
+      font-weight: 800;
+      border: 1px solid rgba(230,237,246,1);
+      background: rgba(255,255,255,0.95);
+      color: var(--ink);
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, var(--accent) 0%, #0a7a44 100%);
+      color:#fff;
+      border: none;
+    }
+
+    @media (max-width:768px){
+      .content{ padding: 26px 18px; }
+      .frame{ padding: 18px; }
+      p{ font-size: 16px; }
+      h1{ font-size: 20px; }
+    }
+
+    @media print{
+      body{ background:#fff; padding:0; }
+      .paper{ box-shadow:none; border:none; border-radius:0; }
+      .topbar{ display:none; }
+      .actions{ display:none; }
+      .content{ padding: 18px; }
+      .frame::before{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="paper">
+      <div class="topbar"></div>
+
+      <div class="content">
+        <header>
+          <h1>كلمة المنسّقة العامّة للمشروع</h1>
+          <div class="sub">في <span class="doc">قاموس مصطلحات الصناعة الصيدلانية</span></div>
+        </header>
+
+        <div class="frame">
+          <div class="divider"></div>
+
+          <p>
+            نُقدّم لكم هذا القاموس في مصطلحات الصناعة الصيدلانية، وهو ثمرة عملٍ علمي وجهد جماعي، وبتنسيق محكم
+            بين <span class="org">هيئتين علميتين متخصصتين</span>:
+            <span class="org">المجلس الأعلى للّغة العربية</span> و<span class="org">وزارة الصناعة الصيدلانية</span>،
+            وإشراف مباشر ودعم متواصل من المسؤولين المعنيين؛ الذين حرصوا على أن يرى هذا العمل النور في زمن قياسي،
+            وفق أرقى <span class="kw">المعايير العلمية</span> وأعلى مقاييس الجودة.
+          </p>
+
+          <p>
+            وقد التزمت اللجنة العلمية، في جميع مراحل الإعداد، الدقة المنهجية والأمانة العلمية، وكانت تسعى إلى تقديم
+            رصيد لغوي ومعجمي يستجيب لاحتياجات الباحثين والممارسين والأساتذة وطلبة الصيدلة. وكان العمل جامعاً بين
+            توثيق المصطلح، وضبط معناه، وسهولة التناول، وسلاسة الاستخدام، ليغدو مرجعاً موثوقاً لكل مشتغل أو مهتم
+            بالحقل الصيدلاني.
+          </p>
+
+          <p>
+            يأتي إنجاز هذا القاموس تتويجاً للتعاون المثمر بين
+            <span class="org">المجلس الأعلى للّغة العربية</span> و<span class="org">وزارة الصناعة الصيدلانية</span>،
+            في إطار تفعيل الاتفاقية المبرمة بين الهيئتين لتعزيز حضور اللغة العربية في الحقول العلمية الدقيقة، وترسيخ
+            التواصل المعرفي بين العاملين في القطاع الصيدلاني، على المستويين الوطني والدولي.
+          </p>
+
+          <p>
+            إنها ثمرة شراكةٍ أتت أُكلها بـ(5610) مصطلحاً في ميدان الصناعة الصيدلانية، ثلاثيّ اللغات، وتُلبي هدف تعميم
+            استعمال اللغة العربية التي تُوظَّف مصطلحاتها وتعبيراتها في الحياة العامة. وهذا هو المطلوب منّا أن نقوم به
+            خدمةً للمواطنة اللغوية والهوية اللغوية؛ وهي ثمرة التنمية المستدامة، ولا تكون دون استعمال اللغة الجامعة بين
+            الحوكمة والحكمة والعمالة؛ وهذا ممكن وسهل عندما تتضافر جهود الجميع لخدمة الهوية الوطنية في بُعدها اللغوي،
+            وأنعِمْ بالفريق الذي قام على هذا المنجز الحيّ!
+          </p>
+
+          <p>
+            وإنّنا، إذ نقدّم هذا العمل، نتوجّه بجزيل الشكر والتقدير إلى أعضاء اللجنة العلمية، الذين بذلوا جهداً وعملاً
+            دؤوباً في جمع المصطلحات وتدقيقها ومراجعتها، وأسهموا بخبراتهم ومعارفهم في إخراج هذا القاموس بالصورة التي
+            تليق بمكانته وأهدافه العلمية.
+          </p>
+
+          <div class="signature">
+            <div class="name">أ. سهام عبد الحفيظ</div>
+            نائبة مدير لتحضير أعمال المجلس
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="index.html">العودة إلى الصفحة الرئيسية</a>
+          <a class="btn primary" href="#" onclick="window.print(); return false;">طباعة</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

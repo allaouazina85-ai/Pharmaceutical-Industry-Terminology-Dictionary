@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فريق العمل - قاموس مصطلحات الصناعة الصيدلانية</title>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e6edf6;
+      --card: rgba(255,255,255,0.92);
+      --accent:#0b6b3a;
+      --accent2:#0b5bd3;
+      --accent3:#6a3bd3;
+      --doc:#7c2d12;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+      color: var(--ink);
+      line-height: 2;
+      padding: 36px 16px;
+
+      /* خلفية متدرجة شفافة وخفيفة */
+      background:
+        radial-gradient(900px 520px at 85% 18%, rgba(11,91,211,0.10), transparent 60%),
+        radial-gradient(900px 520px at 15% 82%, rgba(11,107,58,0.10), transparent 60%),
+        linear-gradient(135deg, rgba(248,250,252,1) 0%, rgba(245,247,255,1) 50%, rgba(246,255,248,1) 100%);
+    }
+
+    .wrap{ max-width: 980px; margin: 0 auto; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(230,237,246,0.95);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.10);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar{
+      height: 12px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+    }
+
+    .content{ padding: 46px 56px; }
+
+    header{ text-align:center; margin-bottom: 18px; }
+    h1{ font-size: 26px; font-weight: 900; margin-top: 6px; }
+    .sub{ margin-top: 8px; font-size: 16px; color: var(--muted); font-weight: 700; }
+
+    .frame{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 26px 22px;
+      background: rgba(255,255,255,0.98);
+      position: relative;
+    }
+
+    .frame::before{
+      content:"";
+      position:absolute;
+      top:14px; bottom:14px; right:14px;
+      width:6px; border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
+      opacity: .9;
+    }
+
+    .divider{ height:1px; background: var(--line); margin: 18px 0 22px; }
+
+    p{
+      font-size: 18px;
+      margin: 0 0 14px 0;
+      text-align: justify;
+      color: var(--ink);
+    }
+
+    .kw{ color: var(--accent2); font-weight: 800; }
+    .org{ color: var(--accent); font-weight: 800; }
+    .doc{ color: var(--doc); font-weight: 900; }
+
+    /* ==== Team (نفس ستايل الصفحات السابقة) ==== */
+    .team-title{
+      margin: 18px 0 10px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    .team-grid{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .team-card{
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(248,250,252,0.70);
+      padding: 14px 14px 12px;
+    }
+
+    .team-card h3{
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      color: var(--accent2);
+      font-weight: 900;
+    }
+
+    .team-card ul{
+      margin: 0;
+      padding-right: 18px;
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .team-card li{ margin: 6px 0; }
+
+    .team-card.wide{ grid-column: 1 / -1; }
+
+    .signature{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .signature .name{ color: var(--accent2); }
+
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration:none;
+      font-weight: 800;
+      border: 1px solid rgba(230,237,246,1);
+      background: rgba(255,255,255,0.95);
+      color: var(--ink);
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, var(--accent) 0%, #0a7a44 100%);
+      color:#fff;
+      border: none;
+    }
+    .btn:hover{ transform: translateY(-1px); transition: .15s; }
+
+    @media (max-width:768px){
+      .content{ padding: 26px 18px; }
+      .frame{ padding: 18px; }
+      p{ font-size: 16px; }
+      h1{ font-size: 20px; }
+      .team-grid{ grid-template-columns: 1fr; }
+      .team-card ul{ font-size: 15px; }
+    }
+
+    @media print{
+      body{ background:#fff; padding:0; }
+      .paper{ box-shadow:none; border:none; border-radius:0; }
+      .topbar{ display:none; }
+      .actions{ display:none; }
+      .content{ padding: 18px; }
+      .frame::before{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="paper">
+      <div class="topbar"></div>
+
+      <div class="content">
+        <header>
+          <h1>فريق العمل</h1>
+          <div class="sub">قاموس مصطلحات الصناعة الصيدلانية</div>
+        </header>
+
+        <div class="frame">
+          <div class="divider"></div>
+
+          <p>
+            فيما يلي قائمة <span class="kw">فريق العمل</span> المساهم في إعداد <span class="doc">قاموس مصطلحات الصناعة الصيدلانية</span>،
+            مع توزيع المهام حسب الجهات واللجان.
+          </p>
+
+          <div class="team-title">القائمة</div>
+
+          <div class="team-grid">
+            <section class="team-card">
+              <h3>المنسّقة العامّة للمشروع وممثّلة المجلس الأعلى للّغة العربيّة</h3>
+              <ul>
+                <li>أ. سهام عبد الحفيظ، نائبة مدير لتحضير أعمال المجلس الأعلى للّغة العربيّة.</li>
+              </ul>
+            </section>
+
+            <section class="team-card">
+              <h3>ممثلو وزارة الصّناعة الصّيدلانيّة</h3>
+              <ul>
+                <li>أ. سعيد عطا الله، منسّق وعضو اللّجنة العلميّة.</li>
+                <li>د. خديجة مجاهد، منسّقة وعضوة اللّجنة العلميّة.</li>
+              </ul>
+            </section>
+
+            <section class="team-card">
+              <h3>رئيسة اللّجنة العلميّة</h3>
+              <ul>
+                <li>الدكتورة وطفاء بن عياد شريف.</li>
+              </ul>
+            </section>
+
+            <section class="team-card">
+              <h3>المترجمتان</h3>
+              <ul>
+                <li>أ. نادية قوجيل، مترجمة ترجمانة.</li>
+                <li>أ. سميّة رحموني، مترجمة ترجمانة.</li>
+              </ul>
+            </section>
+
+            <section class="team-card wide">
+              <h3>أعضاء اللّجنة العلميّة</h3>
+              <ul>
+                <li>د. سميرة عمراني.</li>
+                <li>د. رانيا فرلي.</li>
+                <li>أ. إكرام بلخنيفرات.</li>
+                <li>د. آمال بغدوش.</li>
+                <li>أ. سميرة شنوف.</li>
+                <li>أ. باديس بوربيعة.</li>
+                <li>د. فاطمة الزهراء بوناب.</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="signature">
+            <div class="name">أ. سهام عبد الحفيظ</div>
+            نائبة مدير لتحضير أعمال المجلس الأعلى للّغة العربيّة
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="index.html">العودة إلى الصفحة الرئيسية</a>
+          <a class="btn primary" href="#" onclick="window.print(); return false;">طباعة</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

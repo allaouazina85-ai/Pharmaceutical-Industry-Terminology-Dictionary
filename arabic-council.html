@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>كلمة الپروفيسور صالح بلعيد</title>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --line:#e6edf6;
+      --card: rgba(255,255,255,0.92);
+      --accent:#0b6b3a;
+      --accent2:#0b5bd3;
+      --accent3:#6a3bd3;
+      --doc:#7c2d12;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: right;
+      color: var(--ink);
+      line-height: 2;
+      padding: 36px 16px;
+
+      /* خلفية متدرجة شفافة وخفيفة */
+      background:
+        radial-gradient(900px 520px at 85% 18%, rgba(11,91,211,0.10), transparent 60%),
+        radial-gradient(900px 520px at 15% 82%, rgba(11,107,58,0.10), transparent 60%),
+        linear-gradient(135deg, rgba(248,250,252,1) 0%, rgba(245,247,255,1) 50%, rgba(246,255,248,1) 100%);
+    }
+
+    .wrap{ max-width: 980px; margin: 0 auto; }
+
+    .paper{
+      background: var(--card);
+      border: 1px solid rgba(230,237,246,0.95);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.10);
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .topbar{
+      height: 12px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+    }
+
+    .content{ padding: 46px 56px; }
+
+    header{ text-align:center; margin-bottom: 18px; }
+    h1{ font-size: 26px; font-weight: 900; margin-top: 6px; }
+    .sub{ margin-top: 8px; font-size: 16px; color: var(--muted); font-weight: 700; }
+
+    .frame{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px 26px 22px;
+      background: rgba(255,255,255,0.98);
+      position: relative;
+    }
+
+    .frame::before{
+      content:"";
+      position:absolute;
+      top:14px; bottom:14px; right:14px;
+      width:6px; border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--accent2) 55%, var(--accent3) 100%);
+      opacity: .9;
+    }
+
+    .divider{ height:1px; background: var(--line); margin: 18px 0 22px; }
+
+    p{
+      font-size: 18px;
+      margin: 0 0 14px 0;
+      text-align: justify;
+      color: var(--ink);
+    }
+
+    .kw{ color: var(--accent2); font-weight: 800; }
+    .org{ color: var(--accent); font-weight: 800; }
+    .doc{ color: var(--doc); font-weight: 900; }
+
+    .section-title{
+      margin: 18px 0 10px;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    ul{
+      margin: 8px 0 0;
+      padding-right: 22px;
+      font-size: 18px;
+    }
+    li{ margin: 8px 0; }
+
+    blockquote{
+      margin: 14px 0;
+      padding: 12px 14px;
+      border-right: 4px solid var(--accent2);
+      background: rgba(11,91,211,0.06);
+      border-radius: 10px;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .signature{
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration:none;
+      font-weight: 800;
+      border: 1px solid rgba(230,237,246,1);
+      background: rgba(255,255,255,0.95);
+      color: var(--ink);
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, var(--accent) 0%, #0a7a44 100%);
+      color:#fff;
+      border: none;
+    }
+
+    @media (max-width:768px){
+      .content{ padding: 26px 18px; }
+      .frame{ padding: 18px; }
+      p, ul, blockquote{ font-size: 16px; }
+      h1{ font-size: 20px; }
+    }
+
+    @media print{
+      body{ background:#fff; padding:0; }
+      .paper{ box-shadow:none; border:none; border-radius:0; }
+      .topbar{ display:none; }
+      .actions{ display:none; }
+      .content{ padding: 18px; }
+      .frame::before{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="paper">
+      <div class="topbar"></div>
+
+      <div class="content">
+        <header>
+          <h1>كلمة الپروفيسور صالح بلعيد</h1>
+          <div class="sub">في قاموس مصطلحات الصناعة الصيدلانية</div>
+        </header>
+
+        <div class="frame">
+          <div class="divider"></div>
+
+          <p>
+            تُعدّ الصيدلة من <span class="kw">أكثر العلوم</span> تطوّراً وتشعّباً، إذ تجمع بين المعرفة الطبية،
+            والكيمياء الحيوية، والبحث العلمي، والتطبيق العملي. ومن هنا تبرز أهمية وجود مرجع شامل يضمّ
+            المصطلحات الأساسية والتخصصية التي يتعامل معها الصيادلة والباحثون وطلبة العلوم الصحية في مختلف المراحل.
+          </p>
+
+          <p>
+            ولتجسيد هذا المسعى، وفي إطار تفعيل اتفاقية التعاون العلمي المبرمة بين
+            <span class="org">المجلس الأعلى للّغة العربية</span> و<span class="org">وزارة الصناعة الصيدلانية</span>،
+            وفي إطار ترقية وازدهار اللغة العربية المكرّسة دستورياً، نفخر بإنجاز هذا المؤلَّف العلمي والتقني الموسوم بـ:
+            <span class="doc">قاموس مصطلحات الصناعة الصيدلانية</span>:
+            ثلاثيّ اللغات (فرنسيّ + عربيّ + إنگليزيّ)، والذي يضمّ (5610) مصطلحاً.
+          </p>
+
+          <p>
+            وإنّه ليسدّ فجوة معرفية حقيقية، ويوفّر أداة مرجعية موثوقة تساعد على فهم المفاهيم الدقيقة وتوحيد المصطلحات
+            المتداولة في المجال الصيدلاني. وقد تم اختيار المصطلحات وفق مجالاتها المتخصصة، مع الحرص على تنوّعها لتغطي
+            فروع الصيدلة المختلفة.
+          </p>
+
+          <p>
+            لقد رأى هذا العمل النور بفضل التوجيه الحكيم، والدعم المتواصل طيلة سنة كاملة مع المنسقين الذين واكبوا مختلف
+            مراحل المشروع بإيمان راسخ بأهميته ورؤية واضحة لأثره المستقبلي. ولا يفوتنا أن ننوّه بالدور المحوري الذي أدّته
+            مجموعة الخبراء الذين سخّروا خبراتهم الرفيعة في جمع المادة العلمية وتدقيقها، واختيار المصطلحات الأكثر تداولاً
+            وحداثة وملاءمة للسياق الصيدلاني.
+          </p>
+
+          <p>
+            ولقد حرصنا على أن يكون القاموس سهل الاستخدام، منظّماً بطريقة تتيح الوصول السريع إلى المعلومات، مع توضيح
+            المعاني بشكل مبسّط ودقيق في آنٍ واحد ما يجعله مناسباً لكلّ من:
+          </p>
+
+          <ul>
+            <li>الطلبة في مراحل الدراسة الجامعية والدراسات العليا.</li>
+            <li>الصيادلة الممارسين في المؤسسات الصحية والصيدليات.</li>
+            <li>الباحثين في مجالات علوم الأدوية والتطوير الدوائي.</li>
+            <li>المترجمين في المجال الطبي والصيدلاني.</li>
+          </ul>
+
+          <p>
+            نأمل أن يكون هذا القاموس أداة فعّالة في تعزيز الفهم، ودعم التعليم والتدريب، والمساهمة في جودة الممارسة المهنية الصيدلانية.
+          </p>
+
+          <p>
+            هي كلمات مقتضبة نريد من ورائها إحلال مكانة العربية في ميدان الصناعة الصيدلانية، وفي مادة العلوم، وهذا ما تنصّ عليه المادة الثالثة (3)
+            من الدستور، والتي تنصّ على:
+          </p>
+
+          <blockquote>
+            "العمل على ازدهار اللغة العربية، وتعميم استعمالها في العلوم وفي التكنولوجيا، والترجمة لهذه الغاية".
+          </blockquote>
+
+          <p>
+            ونأمل أن يتبعه تطبيق جيبي، سيكون أداة وظيفية لكلّ من المختصين والباحثين والكيماويين، ولمَ لا يكون ناطقاً؟
+            <br />وفّقكم الله.
+          </p>
+
+          <div class="signature">الپروفيسور صالح بلعيد</div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="index.html">العودة إلى الصفحة الرئيسية</a>
+          <a class="btn primary" href="#" onclick="window.print(); return false;">طباعة</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
