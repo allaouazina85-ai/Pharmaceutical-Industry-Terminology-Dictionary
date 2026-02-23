@@ -900,8 +900,8 @@ header .extended-icon:hover .icon-content{
 
   /* ✅ تصغير عناوين الشعارات الثلاثة أكثر */
   .logo-title{
-    font-size: .30rem;          /* كان .5rem */
-    line-height: 0.9;          /* كان 1.15 */
+    font-size: .20rem;          /* كان .5rem */
+    line-height:1;          /* كان 1.15 */
     padding: 1.5px 3px;           /* كان 2px 5px */
     min-width: 0 !important;
     max-width: 80px;           /* كان 110px */
@@ -918,9 +918,9 @@ header .extended-icon:hover .icon-content{
   /* ================= RED ICON (✅ أقل ارتفاعاً) ================= */
 
   .extended-icon{
-    width: 70%;
-    padding: 4px 8px;           /* كان 6px 8px */
-    min-height: 40px;           /* يضمن شكل ثابت بدون ضخامة */
+    width: 90%;
+    padding: 1px 8px;           /* كان 6px 8px */
+    min-height: 56px;           /* يضمن شكل ثابت بدون ضخامة */
     border-radius: 12px;
   }
 
