@@ -986,3 +986,77 @@ header .extended-icon:hover .icon-content{
   }
 
 }
+/* =====================================================
+   📱 HEADER MICRO-SCALE (تحكم أدق للهاتف)
+   لا يؤثر على الحاسوب
+===================================================== */
+
+@media (max-width: 768px){
+
+  /* تقليل المساحة العامة للهيدر */
+  header{
+    padding: .8rem 0 1.5rem 0;
+  }
+
+  /* العنوان الرئيسي */
+  .main-title{
+    margin-bottom: 1rem;
+  }
+
+  .main-title h1{
+    font-size: 1.05rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    word-spacing: 1px;
+    transform: none; /* إزالة عمق 3D في الهاتف لتحسين الترتيب */
+  }
+
+  /* صف الشعارات */
+  .logos-row{
+    margin: 1rem 0 1.2rem 0;
+    gap: .8rem;
+  }
+
+  .logo-item{
+    min-width: 90px;
+    padding: 0 .3rem;
+  }
+
+  /* الشعارات نفسها */
+  .center-logo .logo-img{
+    height: 70px;
+  }
+
+  .left-logo .logo-img,
+  .right-logo .logo-img{
+    height: 55px;
+  }
+
+  /* عناوين الشعارات */
+  .logo-title{
+    font-size: .7rem;
+    padding: 4px 6px;
+    border-width: 1px;
+    min-width: auto;
+  }
+
+  .center-logo .logo-title{
+    font-size: .75rem;
+  }
+
+  /* الأيقونة الحمراء */
+  .extended-icon{
+    width: 95%;
+    padding: 10px 8px;
+    border-radius: 14px;
+  }
+
+  .icon-line{
+    font-size: .9rem;
+  }
+
+  .icon-line:last-child{
+    font-size: .8rem;
+  }
+
+}
