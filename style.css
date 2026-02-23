@@ -918,9 +918,9 @@ header .extended-icon:hover .icon-content{
   /* ================= RED ICON (✅ أقل ارتفاعاً) ================= */
 
   .extended-icon{
-    width: 90%;
-    padding: 1px 8px;           /* كان 6px 8px */
-    min-height: 56px;           /* يضمن شكل ثابت بدون ضخامة */
+    width: 92%;
+    padding: 1px 10px;           /* كان 6px 8px */
+    min-height: 55px;           /* يضمن شكل ثابت بدون ضخامة */
     border-radius: 12px;
   }
 
