@@ -904,7 +904,7 @@ header .extended-icon:hover .icon-content{
     line-height:1;          /* كان 1.15 */
     padding: 1.5px 3px;           /* كان 2px 5px */
     min-width: 0 !important;
-    max-width: 80px;           /* كان 110px */
+    max-width: 120px;           /* كان 110px */
     border-width: 1px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,.15);
@@ -917,12 +917,13 @@ header .extended-icon:hover .icon-content{
 
   /* ================= RED ICON (✅ أقل ارتفاعاً) ================= */
 
-  .extended-icon{
-    width: 92%;
-    padding: 1px 10px;           /* كان 6px 8px */
-    min-height: 55px;           /* يضمن شكل ثابت بدون ضخامة */
-    border-radius: 12px;
-  }
+ .extended-icon{
+  width: 92%;
+  height: auto !important;      /* يلغي 120px */
+  min-height: 0 !important;     /* يمنع أي حد أدنى */
+  padding: 1px 10px;            /* يجعلها نحيفة */
+  border-radius: 12px;
+}
 
   .icon-line{
     font-size: .75rem;
