@@ -268,3 +268,128 @@ RESPONSIVE
     font-size:1.1rem;
   }
 }
+/* =====================================================
+   📱 MOBILE OPTIMIZATION LAYER
+   لا يؤثر على الحاسوب إطلاقاً
+   توزيع عمودي + تصغير متناسق
+===================================================== */
+
+@media (max-width: 768px){
+
+  /* ===== تصغير الهيدر ===== */
+  header{
+    min-height: auto;
+    padding: 1.2rem 0 2rem 0;
+  }
+
+  .main-title h1{
+    font-size: 1.4rem;
+    letter-spacing: .5px;
+    word-spacing: 2px;
+  }
+
+  /* ===== تصغير الشعارات ===== */
+  .logos-row{
+    gap: 1rem;
+    margin: 1.5rem 0 2rem 0;
+  }
+
+  .logo-item{
+    min-width: 120px;
+  }
+
+  .center-logo .logo-img{
+    height: 95px;
+  }
+
+  .left-logo .logo-img,
+  .right-logo .logo-img{
+    height: 75px;
+  }
+
+  .logo-title{
+    font-size: .85rem;
+    min-width: auto;
+    padding: 6px 8px;
+  }
+
+  /* ===== تصغير الأيقونة الحمراء ===== */
+  .extended-icon{
+    width: 92%;
+    height: auto;
+    padding: 14px 10px;
+    border-radius: 18px;
+  }
+
+  .icon-line{
+    font-size: 1.05rem;
+  }
+
+  .icon-line:last-child{
+    font-size: .95rem;
+  }
+
+  /* ===== الأيقونات الخضراء ===== */
+  .green-icons-section{
+    margin-top: 60px;
+  }
+
+  .green-icon-item{
+    min-width: 130px;
+  }
+
+  .green-icon-text-inside{
+    font-size: .7rem;
+  }
+
+  /* =====================================================
+     📘 BOOK ZONE – توزيع عمودي بالكامل
+  ===================================================== */
+
+  #book-zone .book-layout{
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  #book-zone .book-arrows{
+    display: none;
+  }
+
+  #book-zone .side-icons{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  #book-zone .side-icon-btn{
+    width: 85%;
+    min-width: auto;
+    font-size: .8rem;
+    padding: 10px;
+  }
+
+  /* تصغير الكتاب بدون كسر 3D */
+  #book-zone .book-stage{
+    height: 420px;
+  }
+
+  #book-zone .book-wrap{
+    transform: scale(0.75);
+  }
+
+}
+
+
+/* شاشات أصغر جداً */
+@media (max-width: 480px){
+
+  .main-title h1{
+    font-size: 1.2rem;
+  }
+
+  #book-zone .book-wrap{
+    transform: scale(0.65);
+  }
+
+}
