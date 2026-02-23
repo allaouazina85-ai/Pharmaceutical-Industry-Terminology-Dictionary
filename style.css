@@ -1,273 +1,867 @@
 /* =========================
-RESET
+FILE: style.css  (نسخة كاملة معدّلة)
+✅ وسط الصفحة رمادي بارد متدرج
+✅ 5 أيقونات حول الكتاب (ممددة + تباعد أكبر)
+✅ أسهم متعرجة ومدببة وخشينة بألوان مختلفة
+✅ تعطيل تفاعلات الهيدر بالكامل (hover/animation)
+✅ تفاعل بسيط فقط على الإيقونة الحمراء عبر كلاس JS
 ========================= */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+
+/* إعدادات عامة مع تأثيرات 3D */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-  font-family:'Amiri', serif;
-  background:#fff;
-  line-height:1.6;
-  overflow-x:hidden;
+body {
+    background-color: white;
+    line-height: 1.6;
+    font-family: 'Amiri', serif;
+    perspective: 1000px; /* إضافة منظور 3D */
 }
 
-.container{
-  width:90%;
-  max-width:1200px;
-  margin:auto;
-  padding:0 15px;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ========== الهيدر ========== */
+header {
+   background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: #FFD700;
+    padding: 2rem 0 0 0;
+    text-align: center;
+    font-family: 'Amiri', serif;
+    position: relative;
+    min-height: 450px;
+    transform-style: preserve-3d;
+   box-shadow: 
+  0 10px 30px rgba(0, 0, 0, 0.4),
+  inset 0 0 50px rgba(37, 99, 235, 0.18);
+}
+
+/* العنوان الرئيسي */
+.main-title {
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+    transform-style: preserve-3d;
+}
+
+.main-title h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    text-shadow: 
+        2px 2px 0 #004d00,
+        4px 4px 0 rgba(0, 0, 0, 0.3),
+        6px 6px 8px rgba(0, 0, 0, 0.5);
+    transform: translateZ(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-title:hover h1 {
+    transform: translateZ(30px) scale(1.02);
+    text-shadow: 
+        3px 3px 0 #004d00,
+        6px 6px 0 rgba(0, 0, 0, 0.3),
+        8px 8px 12px rgba(0, 0, 0, 0.6);
+    color: #FFEC8B;
+}
+
+.logos-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 2rem 0 4rem 0;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+
+.logo-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-item:hover {
+    transform: translateY(-10px) translateZ(15px);
+}
+
+.center-logo {
+    flex: 1.5;
+    order: 2;
+    position: relative;
+    top: -25px;
+    transform: translateZ(10px);
+}
+
+.center-logo .logo-img {
+    height: 140px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+    transition: all 0.4s ease;
+}
+
+.center-logo:hover .logo-img {
+    transform: scale(1.05) translateZ(5px);
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.7));
+}
+
+.left-logo {
+    order: 1;
+    margin-bottom: 25px;
+    transform: translateZ(5px);
+}
+
+.right-logo {
+    order: 3;
+    margin-bottom: 25px;
+    transform: translateZ(5px);
+}
+
+.left-logo .logo-img,
+.right-logo .logo-img {
+    height: 100px;
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.4));
+    transition: all 0.4s ease;
+}
+
+.left-logo:hover .logo-img,
+.right-logo:hover .logo-img {
+    transform: scale(1.08) translateZ(5px);
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.6));
+}
+
+.logo-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.logo-img img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-img img:hover {
+    transform: rotateY(10deg) scale(1.05);
+}
+
+.logo-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    padding: 8px 12px;
+    line-height: 1.4;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+    border-radius: 12px;
+   border: 2px solid rgba(37, 99, 235, 0.9);
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    min-width: 180px;
+    transform: translateZ(15px);
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.logo-title:hover {
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    border: 2px solid rgba(37, 99, 235, 0.9);
+    transform: translateZ(20px) scale(1.05);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        inset 0 2px 6px rgba(255, 255, 255, 0.2);
+    color: #FFEC8B;
+}
+
+.center-logo .logo-title {
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    border-radius: 15px;
+    border: 2px solid rgba(37, 99, 235, 0.9);
+    min-width: 220px;
+    transform: translateZ(20px);
+}
+
+.center-logo .logo-title:hover {
+    transform: translateZ(25px) scale(1.06);
+}
+
+.left-logo .logo-title,
+.right-logo .logo-title {
+    font-size: 1rem;
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15));
+    border-radius: 10px;
+    padding: 8px 10px;
+    min-width: 200px;
+    transform: translateZ(10px);
+}
+
+.left-logo .logo-title:hover,
+.right-logo .logo-title:hover {
+    transform: translateZ(15px) scale(1.04);
+}
+
+.tashkeel {
+    font-family: 'Amiri', serif;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== الإيقونة الممتدة (أحمر) ========== */
+.extended-icon-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(50%);
+    z-index: 1;
+    transform-style: preserve-3d;
+}
+
+.extended-icon {
+    width: 80%;
+    height: 120px;
+    background: linear-gradient(145deg, #fca5a5, #f87171);
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    transform-style: preserve-3d;
+    position: relative;
+    box-shadow: 
+        0 15px 35px rgba(255, 0, 0, 0.4),
+        0 5px 15px rgba(0, 0, 0, 0.5),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
+    border: 3px solid #fecaca;
+    border-top: 3px solid #fee2e2;
+    border-bottom: 3px solid #f87171;
+    transform: translateZ(30px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.extended-icon:hover {
+    transform: translateZ(40px) scale(1.02);
+    background: linear-gradient(145deg, #ff4444, #dd0000);
+    box-shadow: 
+        0 20px 45px rgba(255, 0, 0, 0.6),
+        0 10px 25px rgba(0, 0, 0, 0.7),
+        inset 0 0 40px rgba(255, 255, 255, 0.15);
+    border-color: #ff8888;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 
+            0 20px 45px rgba(255, 0, 0, 0.6),
+            0 10px 25px rgba(0, 0, 0, 0.7),
+            inset 0 0 40px rgba(255, 255, 255, 0.15);
+    }
+    100% {
+        box-shadow: 
+            0 25px 50px rgba(255, 0, 0, 0.8),
+            0 15px 30px rgba(0, 0, 0, 0.8),
+            inset 0 0 50px rgba(255, 255, 255, 0.2);
+    }
+}
+
+.icon-content {
+    text-align: center;
+    color: #000000;
+    width: 100%;
+    transform: translateZ(20px);
+    transition: all 0.4s ease;
+}
+
+.extended-icon:hover .icon-content {
+    transform: translateZ(25px) scale(1.03);
+}
+
+.icon-line {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 2px 0;
+    text-shadow: 
+        1px 1px 2px rgba(255, 255, 255, 0.8),
+        2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.icon-line:last-child {
+    font-size: 1.3rem;
+    color: #111;
+    text-shadow: 
+        1px 1px 2px rgba(255, 255, 255, 0.7),
+        2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* =========================
-HEADER
+   ✅ تفاعل بسيط فقط على الإيقونة الحمراء (يستعمله JS)
 ========================= */
-header{
-  background:linear-gradient(135deg,#1e3a8a,#2563eb);
-  color:#FFD700;
-  text-align:center;
-  padding:2rem 0 3rem;
-  position:relative;
+.extended-icon {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+.extended-icon.red-simple-hover {
+    transform: translateZ(30px) scale(1.01);
+    filter: brightness(1.03);
+    box-shadow:
+        0 18px 40px rgba(255, 0, 0, 0.45),
+        0 6px 18px rgba(0, 0, 0, 0.55),
+        inset 0 0 30px rgba(255, 255, 255, 0.12);
+}
+.extended-icon.red-simple-click {
+    transform: translateZ(30px) scale(0.995);
 }
 
-.main-title h1{
-  font-size:2rem;
-  line-height:1.5;
+/* ========== قسم الأيقونات الخضراء ========== */
+.green-icons-section {
+    background: linear-gradient(135deg, #f8fff8, #e8f5e8);
+    padding: 1rem 0;
+    margin-top: 80px;
+    border-top: 2px solid #00FF00;
+    border-bottom: 2px solid #00FF00;
+    box-shadow: 
+        0 3px 8px rgba(0, 100, 0, 0.03),
+        inset 0 0 10px rgba(0, 100, 0, 0.02);
 }
 
-.logos-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:20px;
-  margin:2rem 0;
+.icons-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
-.logo-item{
-  flex:1;
-  min-width:150px;
-  text-align:center;
+.green-icon-item {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: all 0.2s ease;
 }
 
-.logo-img img{
-  max-width:100%;
-  height:auto;
+.green-icon-item:hover {
+    transform: translateY(-2px) translateZ(3px);
 }
 
-.logo-title{
-  margin-top:8px;
-  font-size:1rem;
+.green-icon-box {
+    background: linear-gradient(145deg, #006400, #004d00);
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 2px 5px rgba(0, 100, 0, 0.15),
+        0 1px 2px rgba(0, 0, 0, 0.08),
+        inset 0 0 5px rgba(255, 255, 255, 0.03);
+    border: 1px solid #007700;
+    transform: translateZ(3px);
+    transition: all 0.2s ease;
+}
+
+.green-icon-item:hover .green-icon-box {
+    background: linear-gradient(145deg, #008000, #005500);
+    box-shadow: 
+        0 3px 7px rgba(0, 100, 0, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 0 8px rgba(255, 255, 255, 0.05);
+    transform: translateZ(5px);
+    border-color: #009900;
+}
+
+.green-icon-text-inside {
+    font-family: 'Amiri', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #FFD700;
+    line-height: 1.3;
+    text-align: center;
+    text-shadow: 
+        0.5px 0.5px 1px rgba(0, 0, 0, 0.5),
+        0 0 3px rgba(255, 215, 0, 0.2);
+    transition: all 0.2s ease;
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 2px 0;
+}
+
+/* ✅ وسط الصفحة: رمادي بارد متدرج */
+.white-space {
+    height: 520px;
+    background: linear-gradient(135deg, #f1f5f9, #cbd5e1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin-top: 0;
+    transform-style: preserve-3d;
+    position: relative;
+    overflow: hidden;
 }
 
 /* =========================
-RED EXTENDED ICON
+   5 أيقونات حول الكتاب + أسهم (معزولة داخل #book-zone)
 ========================= */
-.extended-icon-container{
-  width:100%;
-  display:flex;
-  justify-content:center;
-  margin-top:1rem;
-}
-
-.extended-icon{
-  width:80%;
-  max-width:900px;
-  background:linear-gradient(145deg,#fca5a5,#f87171);
-  padding:20px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.icon-line{
-  font-size:1.3rem;
-  font-weight:700;
-}
-
-/* =========================
-GREEN ICONS SECTION
-========================= */
-.green-icons-section{
-  background:linear-gradient(135deg,#f8fff8,#e8f5e8);
-  padding:1.5rem 0;
-  border-top:2px solid #00aa00;
-  border-bottom:2px solid #00aa00;
-}
-
-.icons-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-}
-
-.green-icon-item{
-  flex:1 1 45%;
-  max-width:250px;
-}
-
-.green-icon-box{
-  background:linear-gradient(145deg,#006400,#004d00);
-  padding:10px;
-  border-radius:8px;
-  text-align:center;
-}
-
-.green-icon-text-inside{
-  font-size:.85rem;
-  color:#FFD700;
-}
-
-/* =========================
-BOOK ZONE
-========================= */
-.white-space{
-  min-height:520px;
-  padding:60px 0;
-  background:linear-gradient(135deg,#f1f5f9,#cbd5e1);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
 #book-zone .book-layout{
-  width:min(1200px,96vw);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:40px;
-  position:relative;
+  width: min(1200px, 96vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 14px 12px;
+  position: relative;
 }
 
 #book-zone .book-arrows{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.95;
+  z-index: 1;
 }
 
 #book-zone .side-icons{
-  width:260px;
-  display:flex;
-  flex-direction:column;
-  gap:50px;
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  z-index: 2;
 }
 
 #book-zone .side-icon-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px;
-  min-height:50px;
-  border-radius:8px;
-  color:#fff;
-  text-decoration:none;
-  font-size:.9rem;
-  font-weight:700;
-  text-align:center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-family: 'Amiri', serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow:
+    0 3px 8px rgba(2,6,23,0.16),
+    inset 0 0 12px rgba(255,255,255,0.07);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  user-select: none;
 }
 
-/* ألوان */
-.c-blue{background:#1d4ed8;}
-.c-purple{background:#7c3aed;}
-.c-teal{background:#0f766e;}
-.c-amber{background:#d97706;}
-.c-slate{background:#475569;}
+#book-zone .side-icon-btn:hover{
+  transform: translateY(-2px) scale(1.01);
+  filter: brightness(1.06);
+  box-shadow:
+    0 6px 14px rgba(2,6,23,0.20),
+    inset 0 0 14px rgba(255,255,255,0.09);
+}
+
+#book-zone .side-icon-btn:active{
+  transform: translateY(-1px) scale(0.995);
+}
+
+#book-zone .side-icon-btn:focus-visible{
+  outline: 2px solid rgba(255, 215, 0, 0.85);
+  outline-offset: 3px;
+}
+
+#book-zone .c-blue   { background: linear-gradient(145deg, #1d4ed8, #1e40af); }
+#book-zone .c-purple { background: linear-gradient(145deg, #7c3aed, #5b21b6); }
+#book-zone .c-teal   { background: linear-gradient(145deg, #0f766e, #115e59); }
+#book-zone .c-amber  { background: linear-gradient(145deg, #d97706, #b45309); }
+#book-zone .c-slate  { background: linear-gradient(145deg, #475569, #334155); }
+
+#book-zone .book-stage{
+  z-index: 2;
+}
+
+/* تجاوب: نخفي الأسهم على الهاتف */
+@media (max-width: 900px){
+  #book-zone .book-layout{
+    flex-direction: column;
+    gap: 16px;
+  }
+  #book-zone .book-arrows{
+    display: none;
+  }
+  #book-zone .side-icons{
+    width: min(520px, 92vw);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  #book-zone .side-icon-btn{
+    flex: 0 0 calc(50% - 12px);
+    min-width: 210px;
+  }
+}
+@media (max-width: 520px){
+  #book-zone .side-icon-btn{
+    flex: 0 0 100%;
+    min-width: 240px;
+  }
+}
 
 /* =========================
-BOOK
+   CSS الكتاب (معزول داخل #book-zone)
 ========================= */
 #book-zone .book-stage{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+    width: min(980px, 94vw);
+    height: min(560px, 70vh);
+    display: grid;
+    place-items: center;
+    perspective: 1400px;
+    position: relative;
+}
+
+/* الظلال */
+#book-zone .book-shadow-wrap{
+    position:absolute;
+    width: calc(300px * 1.15);
+    height: calc(46px * 3.2);
+    transform: translateY(calc(440px * 0.52)) rotateX(78deg);
+    pointer-events:none;
+}
+
+#book-zone .book-contact-shadow{
+    position:absolute;
+    inset:0;
+    width:65%;
+    height:40%;
+    left:17.5%;
+    top:12%;
+    border-radius:999px;
+    background: rgba(2,6,23,0.62);
+    filter: blur(14px);
+    opacity: .95;
+}
+
+#book-zone .book-ambient-shadow{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border-radius:999px;
+    background: rgba(2,6,23,0.35);
+    filter: blur(34px);
+    opacity:.55;
 }
 
 #book-zone .book-wrap{
-  width:280px;
-  height:420px;
+    width: 300px;
+    height: 440px;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform: scale(0.95);
+}
+
+#book-zone .book-3d{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+#book-zone .book-face{ position:absolute; backface-visibility:hidden; }
+
+#book-zone .book-cover{
+    inset: calc(3px * -1);
+    overflow:hidden;
+    border: 1px solid rgba(230,237,246,.92);
+}
+
+#book-zone .book-front{
+    transform: translateZ(calc(46px/2));
+    background: url("cover-front1.jpg") center/cover no-repeat;
+    box-shadow: 0 20px 52px rgba(2,6,23,.16);
+    border-radius: 16px 0 0 16px;
+}
+
+#book-zone .book-back{
+    transform: rotateY(180deg) translateZ(calc(46px/2));
+    background: url("cover-back2.jpg") center/cover no-repeat;
+    border-radius: 0 16px 16px 0;
+}
+
+#book-zone .book-gloss{
+    position:absolute;
+    inset:0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.55) 20%, transparent 40%);
+    transform: translateX(-60%);
+    mix-blend-mode: screen;
+    pointer-events:none;
+    opacity:.55;
+}
+
+#book-zone .book-spine{
+    position:absolute;
+    width: 45px; /* ✅ زاد عرض الكعب */
+    height: calc(440px + (3px*2));
+    top: calc(3px * -1);
+    left: calc((300px/2) - (70px/2)); /* ✅ نفس قيمة العرض */
+    transform: rotateY(90deg) translateZ(calc((300px/2) + 3px));
+
+    /* ✅ الكعب كصورة */
+    background: url("spine.jpg") center/contain no-repeat; /* ✅ تظهر الكتابة كاملة */
+    background-color: #3b3b3b;
+
+    border-radius: 0;
+    box-shadow:
+      inset 8px 0 12px rgba(255,255,255,.15),
+      inset -8px 0 12px rgba(0,0,0,.25);
+}
+
+#book-zone .book-spine::before,
+#book-zone .book-spine::after{
+    content:"";
+    position:absolute;
+    top:10px; bottom:10px;
+    width:2px;
+    opacity:.55;
+}
+#book-zone .book-spine::before{ left:6px; background:rgba(255,255,255,.22); }
+#book-zone .book-spine::after{ right:6px; background:rgba(0,0,0,.18); }
+
+#book-zone .book-pages{
+    position:absolute;
+    width: 50px;
+    height: calc(440px - (6px*2));
+    top: 6px;
+    left: calc((300px/2) - (46px/2));
+    transform: rotateY(-90deg) translateZ(calc(300px/2));
+    background:
+      linear-gradient(90deg,#fff,#f2f2f2),
+      repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0,rgba(0,0,0,.06) 1px,transparent 1px,transparent 6px);
+    border-radius: 12px;
+    border: 1px solid rgba(230,237,246,.78);
+}
+
+#book-zone .book-top,
+#book-zone .book-bottom{
+    position:absolute;
+    width: 300px;
+    height: 46px;
+    left:0;
+    background:#f9f9f9;
+    opacity:.75;
+}
+#book-zone .book-top{ top:0; transform: rotateX(90deg) translateZ(calc(440px/2)); }
+#book-zone .book-bottom{ bottom:0; transform: rotateX(-90deg) translateZ(calc(440px/2)); }
+
+/* تجاوب بسيط للكتاب */
+@media (max-width:520px){
+    #book-zone .book-wrap{
+        transform: scale(0.80);
+    }
 }
 
 /* =========================
-FOOTER
+   OVERRIDES: تعطيل تفاعلات الهيدر بالكامل
+========================= */
+
+/* إلغاء hover على العنوان */
+header .main-title:hover h1{
+  transform: translateZ(20px) !important;
+  color: #FFD700 !important;
+  text-shadow:
+    2px 2px 0 #004d00,
+    4px 4px 0 rgba(0, 0, 0, 0.3),
+    6px 6px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* إلغاء hover على عناصر الشعارات */
+header .logo-item:hover{
+  transform: none !important;
+}
+
+/* إلغاء hover على صور الشعارات */
+header .logo-img img:hover{
+  transform: none !important;
+}
+
+/* إلغاء hover على عناوين الشعارات */
+header .logo-title:hover,
+header .center-logo .logo-title:hover,
+header .left-logo .logo-title:hover,
+header .right-logo .logo-title:hover{
+  transform: translateZ(15px) !important;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)) !important;
+  border-color: rgba(255, 215, 0, 0.5) !important;
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1) !important;
+  color: #FFD700 !important;
+}
+
+/* إلغاء hover/animation الخاصة بالإيقونة الحمراء (يبقى فقط red-simple-hover من JS) */
+header .extended-icon:hover{
+  transform: translateZ(30px) !important;
+  background: linear-gradient(145deg, #ff3333, #cc0000) !important;
+  border-color: #ff6666 !important;
+  animation: none !important;
+  box-shadow:
+    0 15px 35px rgba(255, 0, 0, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(255, 255, 255, 0.1) !important;
+}
+header .extended-icon:hover .icon-content{
+  transform: translateZ(20px) !important;
+}
+/* =========================
+   Footer
 ========================= */
 .site-footer{
-  background:linear-gradient(135deg,#0b2a1a,#043015);
-  color:#fff;
-  padding:20px 0;
+  background: linear-gradient(135deg, #0b2a1a, #043015);
+  border-top: 2px solid rgba(255,215,0,0.35);
+  color: rgba(255,255,255,0.92);
+  padding: 22px 0 18px;
+  margin-top: 22px;
 }
 
-.footer-inner{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:15px;
+.site-footer .footer-inner{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px 18px;
+  align-items: center;
 }
+/* ✅ انقل بلوك العنوان للجهة الأخرى داخل Grid */
+.footer-brand{
+  justify-self: start;        
+}
+
+/* العنوان */
+.footer-brand .footer-title{
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #FFD700;
+  letter-spacing: .3px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+
+  /* ✅ إنزال بسيط فقط */
+  transform: translateY(5px);
+}
+
+.footer-brand .footer-sub{
+  margin-top: 4px;
+  font-size: .9rem;
+  color: rgba(255,255,255,0.78);
+}
+
+.footer-social{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.soc{
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+.soc svg{
+  width: 22px;
+  height: 22px;
+  fill: rgba(255,255,255,0.92);
+}
+
+.soc:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.28);
+}
+
+.soc:active{
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ألوان بسيطة مختلفة */
+.soc-fb   { background: linear-gradient(145deg,#2563eb,#1e40af); }
+.soc-ig   { background: linear-gradient(145deg,#a855f7,#7c3aed); }
+.soc-in   { background: linear-gradient(145deg,#0ea5e9,#0369a1); }
+.soc-yt   { background: linear-gradient(145deg,#ef4444,#b91c1c); }
+.soc-mail { background: linear-gradient(145deg,#10b981,#065f46); }
 
 .footer-copy{
-  font-size:.9rem;
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: .9rem;
+  color: rgba(255,255,255,0.82);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 10px;
 }
 
-/* =========================
-RESPONSIVE
-========================= */
-@media(max-width:900px){
+.footer-copy .dot{ opacity: .55; }
+.footer-copy .muted{ opacity: .75; }
 
-  header{
-    padding-bottom:2rem;
+/* موبايل */
+@media (max-width: 768px){
+  .site-footer .footer-inner{
+    grid-template-columns: 1fr;
   }
-
-  .main-title h1{
-    font-size:1.4rem;
+  .footer-social{
+    justify-content: center;
   }
-
-  .extended-icon{
-    width:95%;
+  .footer-brand{
+    justify-self: start;   
+    text-align: center;
   }
-
-  #book-zone .book-layout{
-    flex-direction:column;
-    gap:25px;
-  }
-
-  #book-zone .book-arrows{
-    display:none;
-  }
-
-  #book-zone .side-icons{
-    width:100%;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-  }
-
-  #book-zone .side-icon-btn{
-    width:90%;
-  }
-
-  #book-zone .book-wrap{
-    transform:scale(.85);
+  .footer-copy{
+    justify-content: center;
+    text-align: center;
   }
 }
 
-@media(max-width:520px){
-
-  .green-icon-item{
-    flex:1 1 100%;
-    max-width:100%;
-  }
-
-  #book-zone .book-wrap{
-    transform:scale(.75);
-  }
-
-  .icon-line{
-    font-size:1.1rem;
-  }
-}
 /* =====================================================
    📱 MOBILE OPTIMIZATION LAYER
    لا يؤثر على الحاسوب إطلاقاً
