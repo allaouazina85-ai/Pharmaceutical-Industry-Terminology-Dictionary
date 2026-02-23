@@ -844,85 +844,101 @@ header .extended-icon:hover .icon-content{
 .footer-copy .dot{ opacity: .55; }
 .footer-copy .muted{ opacity: .75; }
 
-/* موبايل */
-@media (max-width: 768px){
-  .site-footer .footer-inner{
-    grid-template-columns: 1fr;
-  }
-  .footer-social{
-    justify-content: center;
-  }
-  .footer-brand{
-    justify-self: start;   
-    text-align: center;
-  }
-  .footer-copy{
-    justify-content: center;
-    text-align: center;
-  }
-}
 /* =====================================================
-   📱 MOBILE OPTIMIZATION LAYER
-   لا يؤثر على الحاسوب إطلاقاً
-   توزيع عمودي + تصغير متناسق
+   📱 MOBILE CLEAN VERSION
+   تحسين الهاتف بدون التأثير على الحاسوب
 ===================================================== */
 
 @media (max-width: 768px){
 
-  /* ===== تصغير الهيدر ===== */
+  /* ================= HEADER ================= */
+
   header{
     min-height: auto;
-    padding: 1.2rem 0 2rem 0;
+    padding: .8rem 0 1.5rem 0;
+  }
+
+  .main-title{
+    margin-bottom: 1rem;
   }
 
   .main-title h1{
-    font-size: 1.4rem;
-    letter-spacing: .5px;
-    word-spacing: 2px;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    letter-spacing: 0;
+    word-spacing: 1px;
+    transform: none;
   }
 
-  /* ===== تصغير الشعارات ===== */
+  /* ================= LOGOS LAYOUT ================= */
+  /* ترتيب: الرئاسة فوق — الشعارين تحت بجانب بعض */
+
   .logos-row{
-    gap: 1rem;
-    margin: 1.5rem 0 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "center center"
+      "left right";
+    gap: 18px;
+    align-items: center;
+    justify-items: center;
+    margin: 1rem 0 1.2rem 0;
+  }
+
+  .center-logo{
+    grid-area: center;
+    top: 0 !important;
+  }
+
+  /* RTL: نعكس المواقع */
+  .left-logo{
+    grid-area: right;
+  }
+
+  .right-logo{
+    grid-area: left;
   }
 
   .logo-item{
-    min-width: 120px;
+    min-width: 90px;
+    padding: 0 .3rem;
   }
 
-  .center-logo .logo-img{
-    height: 95px;
-  }
-
-  .left-logo .logo-img,
-  .right-logo .logo-img{
-    height: 75px;
-  }
-
+  /* تصغير عناوين الشعارات */
   .logo-title{
-    font-size: .85rem;
-    min-width: auto;
-    padding: 6px 8px;
+    font-size: 0.58rem;
+    line-height: 1.2;
+    padding: 3px 6px;
+    min-width: 0 !important;
+    max-width: 140px;
+    border-width: 1px;
+    border-radius: 9px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.18);
+    transform: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
-  /* ===== تصغير الأيقونة الحمراء ===== */
+  /* ================= RED ICON ================= */
+
   .extended-icon{
-    width: 92%;
-    height: auto;
-    padding: 14px 10px;
-    border-radius: 18px;
+    width: 95%;
+    padding: 10px 8px;
+    border-radius: 14px;
   }
 
   .icon-line{
-    font-size: 1.05rem;
+    font-size: .9rem;
   }
 
   .icon-line:last-child{
-    font-size: .95rem;
+    font-size: .8rem;
   }
 
-  /* ===== الأيقونات الخضراء ===== */
+  /* ================= GREEN SECTION ================= */
+
   .green-icons-section{
     margin-top: 60px;
   }
@@ -935,9 +951,7 @@ header .extended-icon:hover .icon-content{
     font-size: .7rem;
   }
 
-  /* =====================================================
-     📘 BOOK ZONE – توزيع عمودي بالكامل
-  ===================================================== */
+  /* ================= BOOK SECTION ================= */
 
   #book-zone .book-layout{
     flex-direction: column;
@@ -957,12 +971,10 @@ header .extended-icon:hover .icon-content{
 
   #book-zone .side-icon-btn{
     width: 85%;
-    min-width: auto;
     font-size: .8rem;
     padding: 10px;
   }
 
-  /* تصغير الكتاب بدون كسر 3D */
   #book-zone .book-stage{
     height: 420px;
   }
@@ -971,185 +983,37 @@ header .extended-icon:hover .icon-content{
     transform: scale(0.75);
   }
 
-}
+  /* ================= FOOTER ================= */
 
+  .site-footer .footer-inner{
+    grid-template-columns: 1fr;
+  }
+
+  .footer-social{
+    justify-content: center;
+  }
+
+  .footer-brand{
+    justify-self: start;
+    text-align: center;
+  }
+
+  .footer-copy{
+    justify-content: center;
+    text-align: center;
+  }
+
+}
 
 /* شاشات أصغر جداً */
 @media (max-width: 480px){
 
   .main-title h1{
-    font-size: 1.2rem;
+    font-size: .95rem;
   }
 
   #book-zone .book-wrap{
     transform: scale(0.65);
-  }
-
-}
-/* =====================================================
-   📱 HEADER MICRO-SCALE (تحكم أدق للهاتف)
-   لا يؤثر على الحاسوب
-===================================================== */
-
-@media (max-width: 768px){
-
-  /* تقليل المساحة العامة للهيدر */
-  header{
-    padding: .8rem 0 1.5rem 0;
-  }
-
-  /* العنوان الرئيسي */
-  .main-title{
-    margin-bottom: 1rem;
-  }
-
-  .main-title h1{
-    font-size: 1.05rem;
-    line-height: 1.4;
-    letter-spacing: 0;
-    word-spacing: 1px;
-    transform: none; /* إزالة عمق 3D في الهاتف لتحسين الترتيب */
-  }
-
-  /* صف الشعارات */
-  .logos-row{
-    margin: 1rem 0 1.2rem 0;
-    gap: .8rem;
-  }
-
-  .logo-item{
-    min-width: 90px;
-    padding: 0 .3rem;
-  }
-
-  /* الشعارات نفسها */
-  .center-logo .logo-img{
-    height: 70px;
-  }
-
-  .left-logo .logo-img,
-  .right-logo .logo-img{
-    height: 55px;
-  }
-
-  /* عناوين الشعارات */
-  .logo-title{
-    font-size: .7rem;
-    padding: 4px 6px;
-    border-width: 1px;
-    min-width: auto;
-  }
-
-  .center-logo .logo-title{
-    font-size: .75rem;
-  }
-
-  /* الأيقونة الحمراء */
-  .extended-icon{
-    width: 95%;
-    padding: 10px 8px;
-    border-radius: 14px;
-  }
-
-  .icon-line{
-    font-size: .9rem;
-  }
-
-  .icon-line:last-child{
-    font-size: .8rem;
-  }
-
-}
-/* =========================
-   📱 Logo titles compact (MOBILE ONLY)
-   تصغير صندوق العناوين + الإطار + الهوامش
-========================= */
-@media (max-width: 768px){
-
-  /* صندوق عنوان الشعار */
-  .logo-title,
-  .center-logo .logo-title,
-  .left-logo .logo-title,
-  .right-logo .logo-title{
-    font-size: 0.58rem !important;
-    line-height: 1.2 !important;
-
-    padding: 3px 6px !important;
-    margin-top: 6px !important;
-
-    min-width: 0 !important;     /* يلغي 180/200/220px */
-    width: auto !important;
-
-    max-width: 140px;            /* قلليها إذا تبغي أصغر */
-    border-radius: 9px !important;
-    border-width: 1px !important;
-
-    /* تخفيف الضخامة */
-    box-shadow: 0 2px 6px rgba(0,0,0,.18) !important;
-    transform: none !important;  /* يلغي translateZ للهاتف فقط */
-  }
-
-  /* قص لطيف للنص الطويل (سطرين فقط) */
-  .logo-title{
-    display: -webkit-box !important;
-    -webkit-box-orient: vertical !important;
-    -webkit-line-clamp: 2 !important;
-    overflow: hidden !important;
-  }
-}
-/* ==========================================
-   📱 MOBILE LOGOS REORDER
-   ترتيب الشعارات في الهاتف فقط
-========================================== */
-@media (max-width: 768px){
-
-  .logos-row{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-  }
-
-  /* الشعار الأوسط (رئاسة الجمهورية) في الأعلى */
-  .center-logo{
-    order: 1;
-    top: 0 !important;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* إنشاء صف جديد للشعارين الآخرين */
-  .left-logo,
-  .right-logo{
-    width: 45%;
-  }
-
-  /* نجعل الاثنين في صف واحد */
-  .logos-row{
-    flex-wrap: wrap;
-  }
-
-  .left-logo{
-    order: 2;
-  }
-
-  .right-logo{
-    order: 3;
-  }
-
-  /* تحويلهما إلى صف أفقي */
-  .left-logo,
-  .right-logo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* نجعل الاثنين بجانب بعض */
-  .logos-row{
-    justify-content: center;
   }
 
 }
