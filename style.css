@@ -1097,3 +1097,59 @@ header .extended-icon:hover .icon-content{
     overflow: hidden !important;
   }
 }
+/* ==========================================
+   📱 MOBILE LOGOS REORDER
+   ترتيب الشعارات في الهاتف فقط
+========================================== */
+@media (max-width: 768px){
+
+  .logos-row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* الشعار الأوسط (رئاسة الجمهورية) في الأعلى */
+  .center-logo{
+    order: 1;
+    top: 0 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* إنشاء صف جديد للشعارين الآخرين */
+  .left-logo,
+  .right-logo{
+    width: 45%;
+  }
+
+  /* نجعل الاثنين في صف واحد */
+  .logos-row{
+    flex-wrap: wrap;
+  }
+
+  .left-logo{
+    order: 2;
+  }
+
+  .right-logo{
+    order: 3;
+  }
+
+  /* تحويلهما إلى صف أفقي */
+  .left-logo,
+  .right-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* نجعل الاثنين بجانب بعض */
+  .logos-row{
+    justify-content: center;
+  }
+
+}
