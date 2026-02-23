@@ -1060,3 +1060,40 @@ header .extended-icon:hover .icon-content{
   }
 
 }
+/* =========================
+   📱 Logo titles compact (MOBILE ONLY)
+   تصغير صندوق العناوين + الإطار + الهوامش
+========================= */
+@media (max-width: 768px){
+
+  /* صندوق عنوان الشعار */
+  .logo-title,
+  .center-logo .logo-title,
+  .left-logo .logo-title,
+  .right-logo .logo-title{
+    font-size: 0.58rem !important;
+    line-height: 1.2 !important;
+
+    padding: 3px 6px !important;
+    margin-top: 6px !important;
+
+    min-width: 0 !important;     /* يلغي 180/200/220px */
+    width: auto !important;
+
+    max-width: 140px;            /* قلليها إذا تبغي أصغر */
+    border-radius: 9px !important;
+    border-width: 1px !important;
+
+    /* تخفيف الضخامة */
+    box-shadow: 0 2px 6px rgba(0,0,0,.18) !important;
+    transform: none !important;  /* يلغي translateZ للهاتف فقط */
+  }
+
+  /* قص لطيف للنص الطويل (سطرين فقط) */
+  .logo-title{
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    overflow: hidden !important;
+  }
+}
