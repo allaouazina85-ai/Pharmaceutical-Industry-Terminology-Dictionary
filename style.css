@@ -889,13 +889,23 @@ header .extended-icon:hover .icon-content{
     top: 0 !important;
   }
 
-  .left-logo{ grid-area: right; }
-  .right-logo{ grid-area: left; }
+.left-logo{ grid-area: right; }
+.right-logo{ grid-area: left; }
 
-  .logo-item{
-    min-width: 80px;
-    padding: 0 .2rem;
-  }
+.logo-item{
+  min-width: 80px;
+  padding: 0 .2rem;
+}
+
+/* ✅ أضيفي هذا مباشرة بعده لتصغير صور الشعارات */
+.center-logo .logo-img{ height: 60px !important; }
+.left-logo  .logo-img{ height: 50px !important; }
+.right-logo .logo-img{ height: 50px !important; }
+
+.logo-img img{
+  max-height: 100% !important;
+  max-width: 100% !important;
+}
 
   /* ✅ تصغير عناوين الشعارات الثلاثة (استهداف مباشر وأقوى) */
   .center-logo .logo-title,
