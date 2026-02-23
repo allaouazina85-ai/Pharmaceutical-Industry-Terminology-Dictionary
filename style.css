@@ -855,23 +855,23 @@ header .extended-icon:hover .icon-content{
 
   header{
     min-height: auto;
-    padding: .8rem 0 1.5rem 0;
+    padding: .7rem 0 1.2rem 0;
   }
 
   .main-title{
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
   }
 
   .main-title h1{
-    font-size: 1.05rem;
-    line-height: 1.4;
+    font-size: .95rem;
+    line-height: 1.3;
     letter-spacing: 0;
     word-spacing: 1px;
     transform: none;
   }
 
   /* ================= LOGOS LAYOUT ================= */
-  /* ترتيب: الرئاسة فوق — الشعارين تحت بجانب بعض */
+  /* الرئاسة فوق — الشعارين تحت بجانب بعض */
 
   .logos-row{
     display: grid;
@@ -879,10 +879,10 @@ header .extended-icon:hover .icon-content{
     grid-template-areas:
       "center center"
       "left right";
-    gap: 18px;
+    gap: 14px;
     align-items: center;
     justify-items: center;
-    margin: 1rem 0 1.2rem 0;
+    margin: .8rem 0 1rem 0;
   }
 
   .center-logo{
@@ -890,30 +890,24 @@ header .extended-icon:hover .icon-content{
     top: 0 !important;
   }
 
-  /* RTL: نعكس المواقع */
-  .left-logo{
-    grid-area: right;
-  }
-
-  .right-logo{
-    grid-area: left;
-  }
+  .left-logo{ grid-area: right; }
+  .right-logo{ grid-area: left; }
 
   .logo-item{
-    min-width: 90px;
-    padding: 0 .3rem;
+    min-width: 80px;
+    padding: 0 .2rem;
   }
 
-  /* تصغير عناوين الشعارات */
+  /* تصغير عناوين الشعارات أكثر */
   .logo-title{
-    font-size: 0.58rem;
-    line-height: 1.2;
-    padding: 3px 6px;
+    font-size: .5rem;
+    line-height: 1.15;
+    padding: 2px 5px;
     min-width: 0 !important;
-    max-width: 140px;
+    max-width: 110px;
     border-width: 1px;
-    border-radius: 9px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.18);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.15);
     transform: none;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -921,41 +915,57 @@ header .extended-icon:hover .icon-content{
     overflow: hidden;
   }
 
-  /* ================= RED ICON ================= */
+  /* ================= RED ICON (أصغر وأنحف) ================= */
 
   .extended-icon{
-    width: 95%;
-    padding: 10px 8px;
-    border-radius: 14px;
+    width: 92%;
+    padding: 6px 8px;
+    border-radius: 12px;
   }
 
   .icon-line{
-    font-size: .9rem;
+    font-size: .75rem;
   }
 
   .icon-line:last-child{
-    font-size: .8rem;
+    font-size: .7rem;
   }
 
   /* ================= GREEN SECTION ================= */
+  /* جعل الأيقونات الأربعة في صف أفقي واحد */
 
   .green-icons-section{
-    margin-top: 60px;
+    margin-top: 45px;
+  }
+
+  .icons-row{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 6px;
   }
 
   .green-icon-item{
-    min-width: 130px;
+    flex: 1;
+    min-width: auto;
+  }
+
+  .green-icon-box{
+    padding: 6px 4px;
+    min-height: 34px;
+    border-radius: 8px;
   }
 
   .green-icon-text-inside{
-    font-size: .7rem;
+    font-size: .55rem;
+    -webkit-line-clamp: 1;
   }
 
   /* ================= BOOK SECTION ================= */
 
   #book-zone .book-layout{
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
   }
 
   #book-zone .book-arrows{
@@ -966,21 +976,21 @@ header .extended-icon:hover .icon-content{
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
 
   #book-zone .side-icon-btn{
     width: 85%;
-    font-size: .8rem;
-    padding: 10px;
+    font-size: .75rem;
+    padding: 8px;
   }
 
   #book-zone .book-stage{
-    height: 420px;
+    height: 380px;
   }
 
   #book-zone .book-wrap{
-    transform: scale(0.75);
+    transform: scale(0.7);
   }
 
   /* ================= FOOTER ================= */
@@ -1009,11 +1019,11 @@ header .extended-icon:hover .icon-content{
 @media (max-width: 480px){
 
   .main-title h1{
-    font-size: .95rem;
+    font-size: .85rem;
   }
 
   #book-zone .book-wrap{
-    transform: scale(0.65);
+    transform: scale(0.6);
   }
 
 }
