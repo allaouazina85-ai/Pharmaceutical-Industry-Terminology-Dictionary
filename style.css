@@ -986,9 +986,15 @@ header .extended-icon:hover .icon-content{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;                 /* كان 12px */
+
+  gap: 16px;        /* كان 12px */
+  --book-gap: 18px; /* ✅ عدّلي هذا الرقم فقط */
 }
 
+/* ✅ نفس المسافة فوق وتحت الكتاب */
+#book-zone .book-stage{
+  margin: var(--book-gap) 0 !important;
+}
 /* إخفاء الأسهم في الهاتف */
 #book-zone .book-arrows{
   display: none;
