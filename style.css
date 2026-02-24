@@ -986,7 +986,7 @@ header .extended-icon:hover .icon-content{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;                 /* كان 12px */
 }
 
 /* إخفاء الأسهم في الهاتف */
@@ -1002,25 +1002,28 @@ header .extended-icon:hover .icon-content{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap:11px;
-  flex-wrap: nowrap;
+
+  gap: 18px;                 /* ✅ زيادة التباعد بين الأيقونات */
+  flex-wrap: wrap;           /* ✅ يسمح بنزول سطر ثاني بدل التداخل */
   z-index: 3;
+
+  padding: 8px 0;            /* ✅ مساحة بسيطة حول الأيقونات */
 }
 
-/* 🔥 إلغاء قيود الميديا القديمة (900px و 520px) */
+/* ✅ تكبير الأيقونات + إبقاؤها دائرية */
 #book-zone .side-icon-btn{
   flex: 0 0 auto !important;
   min-width: 0 !important;
 
-  width: 36px !important;
-  height: 36px !important;
-  min-height: 36px !important;
+  width: 62px !important;    /* ✅ كان 36px */
+  height: 62px !important;   /* ✅ كان 36px */
+  min-height: 62px !important;
 
-  padding: 2px !important;
+  padding: 6px !important;   /* ✅ كان 2px */
   border-radius: 50% !important;
 
-  font-size: .42rem !important;
-  line-height: 1.1 !important;
+  font-size: .70rem !important;  /* ✅ كان .42rem */
+  line-height: 1.15 !important;
 
   display: flex;
   align-items: center;
@@ -1030,12 +1033,12 @@ header .extended-icon:hover .icon-content{
   overflow: hidden;
 }
 
-/* تصغير مساحة المسرح */
+/* مساحة المسرح */
 #book-zone .book-stage{
-  height: 280px;
+  height: 320px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
 }
 
-/* تصغير الكتاب (حوالي ثلث الحجم الأصلي) */
+/* الكتاب */
 #book-zone .book-wrap{
-  transform: scale(0.45);
+  transform: scale(0.45);    /* نفس القيمة كما طلبت */
 }
