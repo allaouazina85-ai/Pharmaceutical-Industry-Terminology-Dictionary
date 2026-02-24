@@ -987,6 +987,8 @@ header .extended-icon:hover .icon-content{
   align-items: center;
   justify-content: center;
 
+  gap: 8px;        /* كان 12px */
+  --book-gap: 10px; /* ✅ عدّلي هذا الرقم فقط */
 }
 
 /* ✅ نفس المسافة فوق وتحت الكتاب */
