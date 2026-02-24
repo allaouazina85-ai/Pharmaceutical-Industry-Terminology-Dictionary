@@ -926,71 +926,47 @@ header .extended-icon:hover .icon-content{
     overflow: hidden;
   }
 
- /* ================= BOOK SECTION ================= */
+/* ================= BOOK SECTION ================= */
 
-  #book-zone .book-layout{
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #book-zone .book-arrows{
-    display: none;
-  }
-
-  #book-zone .side-icons{
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  #book-zone .side-icon-btn{
-    width: 85%;
-    font-size: .75rem;
-    padding: 8px;
-  }
-
-  #book-zone .book-stage{
-    height: 380px;
-  }
-
-  #book-zone .book-wrap{
-    transform: scale(0.7);
-  }
-
-  /* ================= FOOTER ================= */
-
-  .site-footer .footer-inner{
-    grid-template-columns: 1fr;
-  }
-
-  .footer-social{
-    justify-content: center;
-  }
-
-  .footer-brand{
-    justify-self: start;
-    text-align: center;
-  }
-
-  .footer-copy{
-    justify-content: center;
-    text-align: center;
-  }
-
+#book-zone .book-layout{
+  flex-direction: row;          /* تبقى حول الكتاب */
+  justify-content: center;
+  align-items: center;
+  gap: 12px;                    /* مسافة أصغر */
 }
 
-/* شاشات أصغر جداً */
-@media (max-width: 480px){
-
-  .main-title h1{
-    font-size: .85rem;
-  }
-
-  #book-zone .book-wrap{
-    transform: scale(0.6);
-  }
-
+#book-zone .book-arrows{
+  display: none;                /* نُبقي الأسهم مخفية */
 }
 
+/* حاوية الأيقونات يمين ويسار */
+#book-zone .side-icons{
+  width: auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
 
+/* ✅ الأيقونات تصبح صغيرة جداً ودائرية */
+#book-zone .side-icon-btn{
+  width: 58px;
+  height: 58px;
+  min-height: 58px;
+  padding: 6px;
+  font-size: .55rem;
+  border-radius: 50%;           /* الشكل الدائري */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* تقليل مساحة الكتاب */
+#book-zone .book-stage{
+  height: 260px;
+}
+
+/* ✅ تصغير الكتاب إلى ثلث تقريباً */
+#book-zone .book-wrap{
+  transform: scale(0.35);
+}
