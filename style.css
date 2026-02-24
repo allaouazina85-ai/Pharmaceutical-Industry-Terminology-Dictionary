@@ -982,10 +982,11 @@ header .extended-icon:hover .icon-content{
 
 #book-zone .book-layout{
   position: relative;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0;
+  gap: 14px;
 }
 
 /* نخفي الأسهم */
@@ -993,85 +994,35 @@ header .extended-icon:hover .icon-content{
   display: none;
 }
 
-/* =================
-   الأيقونات الخمسة فوق الكتاب بشكل قوس
-================= */
-
+/* ✅ نجعل حاويتي اليمين واليسار في صف واحد */
 #book-zone .side-icons{
-  position: absolute;
-  top: -10px;              /* يحدد قربها من أعلى الكتاب */
+  position: static;          /* إلغاء absolute */
   width: 100%;
-  height: 120px;
-  pointer-events: auto;
+  display: flex;
+  flex-direction: row;       /* صف أفقي */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  z-index: 3;
 }
 
-/* الزر نفسه */
+/* ✅ تصغير الأيقونات وتصبح دائرية */
 #book-zone .side-icon-btn{
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  font-size: .5rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
   padding: 4px;
-}
-
-/* =================
-   الأيقونات فوق الكتاب – قوس صغير متناسق
-================= */
-
-#book-zone .side-icons{
-  position: absolute;
-  top: -40px;        /* رفعها فوق الكتاب */
-  width: 100%;
-  height: 90px;      /* مساحة أصغر */
-}
-
-/* تصغير فعلي للأيقونات */
-#book-zone .side-icon-btn{
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  font-size: .42rem;
   border-radius: 50%;
-  padding: 3px;
+  font-size: .45rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  line-height: 1.1;
 }
 
-/* توزيع قوس متناسق وصغير */
-
-#book-zone .side-icon-btn:nth-child(1){
-  left: 8%;
-  top: 55px;
-}
-
-#book-zone .side-icon-btn:nth-child(2){
-  left: 25%;
-  top: 25px;
-}
-
-#book-zone .side-icon-btn:nth-child(3){
-  left: 50%;
-  transform: translateX(-50%);
-  top: 10px;
-}
-
-#book-zone .side-icon-btn:nth-child(4){
-  right: 25%;
-  top: 25px;
-}
-
-#book-zone .side-icon-btn:nth-child(5){
-  right: 8%;
-  top: 55px;
-}/* =================
-   تصغير الكتاب
-================= */
-
+/* ✅ تصغير الكتاب */
 #book-zone .book-stage{
   height: 300px;
 }
