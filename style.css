@@ -987,7 +987,7 @@ header .extended-icon:hover .icon-content{
   align-items: center;
   justify-content: center;
 
-  gap: 16px;        /* كان 12px */
+  gap: 8px;        /* كان 12px */
   --book-gap: 18px; /* ✅ عدّلي هذا الرقم فقط */
 }
 
@@ -1041,7 +1041,7 @@ header .extended-icon:hover .icon-content{
 
 /* مساحة المسرح */
 #book-zone .book-stage{
-  height: 360px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
+  height: 320px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
 }
 
 /* الكتاب */
