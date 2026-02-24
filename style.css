@@ -978,7 +978,7 @@ header .extended-icon:hover .icon-content{
   font-size: .55rem;
   -webkit-line-clamp: 1;
 }
-/* ================= BOOK SECTION ================= */
+/* ================= BOOK SECTION (MOBILE ONLY) ================= */
 
 #book-zone .book-layout{
   position: relative;
@@ -986,50 +986,56 @@ header .extended-icon:hover .icon-content{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
 }
 
-/* نخفي الأسهم */
+/* إخفاء الأسهم في الهاتف */
 #book-zone .book-arrows{
   display: none;
 }
 
-/* ✅ نجعل حاويتي اليمين واليسار في صف واحد */
+/* الأيقونات في صف أفقي فوق الكتاب */
 #book-zone .side-icons{
-  position: static;          /* إلغاء absolute */
+  position: static;
   width: 100%;
   display: flex;
-  flex-direction: row;       /* صف أفقي */
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: nowrap;
   z-index: 3;
 }
 
-/* ✅ MOBILE: تصغير أيقونات الكتاب فقط */
+/* 🔥 إلغاء قيود الميديا القديمة (900px و 520px) */
+#book-zone .side-icon-btn{
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
 
-  #book-zone .side-icon-btn{
-    width: 36px !important;
-    height: 36px !important;
-    min-height: 36px !important;   /* مهم: لا تتركيها 0 */
-    padding: 2px !important;
-    border-radius: 50% !important;
-    font-size: .42rem !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 1.1 !important;
-    overflow: hidden;
-  }
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
 
+  padding: 2px !important;
+  border-radius: 50% !important;
+
+  font-size: .42rem !important;
+  line-height: 1.1 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  overflow: hidden;
 }
-/* ✅ تصغير الكتاب */
+
+/* تصغير مساحة المسرح */
 #book-zone .book-stage{
-  height: 300px;
+  height: 280px;
 }
 
+/* تصغير الكتاب (حوالي ثلث الحجم الأصلي) */
 #book-zone .book-wrap{
   transform: scale(0.45);
 }
