@@ -1059,3 +1059,37 @@ header .extended-icon:hover .icon-content{
 #book-zone .book-wrap{
   transform: scale(0.45);
 }
+/* =========================
+   FOOTER (MOBILE ONLY)
+========================= */
+@media (max-width: 768px){
+
+  /* ترتيب عناصر التذييل عمودياً */
+  .site-footer .footer-inner{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+  }
+
+  /* تصغير عنوان: هندسة و برمجة علاوة زينة */
+  .footer-brand .footer-title{
+    font-size: .78rem !important;
+    transform: none !important; /* يلغي النزول اللي كان في نسخة الكمبيوتر */
+    line-height: 1.2 !important;
+  }
+
+  /* ترتيب أيقونات التواصل في الوسط */
+  .footer-social{
+    justify-content: center !important;
+  }
+
+  /* جعل سطر الحقوق مرتب */
+  .footer-copy{
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: .78rem !important;
+  }
+
+}
