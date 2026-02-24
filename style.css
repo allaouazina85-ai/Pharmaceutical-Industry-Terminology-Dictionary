@@ -985,35 +985,46 @@ header .extended-icon:hover .icon-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* ✅ بدل center */
 
-  gap: 8px;        /* كان 12px */
-  --book-gap: 10px; /* ✅ عدّلي هذا الرقم فقط */
+  gap: 8px;
+  --book-gap: 10px;
 }
 
-/* ✅ نفس المسافة فوق وتحت الكتاب */
-#book-zone .book-stage{
-  margin:4px 0 8px 0 !important;  /* أعلى، يمين، أسفل، يسار */
-}
-/* إخفاء الأسهم في الهاتف */
-#book-zone .book-arrows{
-  display: none;
-}
-
-/* الأيقونات في صف أفقي فوق الكتاب */
-#book-zone .side-icons{
-  position: static;
+/* ✅ ترتيب الأيقونات: 3 فوق ثم 2 تحت */
+#book-zone .side-right{
+  order: 1;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 8px 0;
+}
 
-  gap: 18px;                 /* ✅ زيادة التباعد بين الأيقونات */
-  flex-wrap: wrap;           /* ✅ يسمح بنزول سطر ثاني بدل التداخل */
-  z-index: 3;
+#book-zone .side-left{
+  order: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 0 0 8px 0;
+}
 
-  padding: 8px 0;            /* ✅ مساحة بسيطة حول الأيقونات */
+/* ✅ الكتاب يأتي بعد الأيقونات */
+#book-zone .book-stage{
+  order: 3;
+  margin: 4px 0 18px 0 !important;
+}
+
+/* إخفاء الأسهم في الهاتف */
+#book-zone .book-arrows{
+  display: none;
 }
 
 /* ✅ تكبير الأيقونات + إبقاؤها دائرية */
@@ -1021,14 +1032,14 @@ header .extended-icon:hover .icon-content{
   flex: 0 0 auto !important;
   min-width: 0 !important;
 
-  width: 62px !important;    /* ✅ كان 36px */
-  height: 62px !important;   /* ✅ كان 36px */
+  width: 62px !important;
+  height: 62px !important;
   min-height: 62px !important;
 
-  padding: 6px !important;   /* ✅ كان 2px */
+  padding: 6px !important;
   border-radius: 50% !important;
 
-  font-size: .70rem !important;  /* ✅ كان .42rem */
+  font-size: .70rem !important;
   line-height: 1.15 !important;
 
   display: flex;
@@ -1041,10 +1052,10 @@ header .extended-icon:hover .icon-content{
 
 /* مساحة المسرح */
 #book-zone .book-stage{
-  height: 320px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
+  height: 320px;
 }
 
 /* الكتاب */
 #book-zone .book-wrap{
-  transform: scale(0.45);    /* نفس القيمة كما طلبت */
+  transform: scale(0.45);
 }
