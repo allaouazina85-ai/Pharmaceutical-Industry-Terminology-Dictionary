@@ -1039,12 +1039,15 @@ header .extended-icon:hover .icon-content{
   overflow: hidden;
 }
 
-/* مساحة المسرح */
-#book-zone .book-stage{
-  height: 320px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
-}
+  /* مساحة المسرح */
+  #book-zone .book-stage{
+    margin-top: 0px !important;      /* إذا تبغيه أعلى أكثر: -6px أو -10px */
+    margin-bottom: 10px !important;
+  }
 
-/* الكتاب */
-#book-zone .book-wrap{
-  transform: scale(0.45);    /* نفس القيمة كما طلبت */
+  /* رفع الكتاب نفسه */
+  #book-zone .book-wrap{
+    transform: translateY(-14px) scale(0.45) !important;
+  }
+
 }
