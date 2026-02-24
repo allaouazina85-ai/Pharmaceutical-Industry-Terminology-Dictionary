@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ✅ تحديث السرعات عند تدوير الهاتف/تغيير حجم الشاشة
     function updateSpeeds() {
-      ROT_SPEED = mq.matches ? 0.22 : 0.12;
+      ROT_SPEED = mq.matches ? 0.30 : 0.12;
       GLOSS_SPEED = mq.matches ? 0.012 : 0.008;
     }
 
@@ -77,3 +77,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+
