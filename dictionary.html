@@ -562,13 +562,14 @@ const data = [
 
 {"id":32,"page":11,"fr":"Acétate de flécainide","ar":"أسيتات فليكاينيد","en":"Flecainide acetate","kw_fr":"acetate flecainide","kw_ar":"اسيتات فليكاينيد","kw_en":"flecainide acetate"}
 ];
+
     // ===== DOM References =====
 const input = document.getElementById("searchInput");
 const resultsEl = document.getElementById("results");
 const emptyEl = document.getElementById("emptyState");
 const pdfViewer = document.getElementById("pdfViewer");
 
-    
+
     // ===== Tabs (mobile) =====
     const tabSearch = document.getElementById("tabSearch");
     const tabSource = document.getElementById("tabSource");
@@ -606,7 +607,10 @@ const pdfViewer = document.getElementById("pdfViewer");
 
     function fillVoices(){
       if (!window.speechSynthesis) return;
-      voices = window.speechSynthesis.getVoices() || [];
+
+      // IMPORTANT: do NOT reset voices to [] while loading on mobile.
+      const loaded = window.speechSynthesis.getVoices() || [];
+      if (loaded.length) voices = loaded;
 
       function fill(selectEl, langHints){
         selectEl.innerHTML = "";
@@ -627,19 +631,72 @@ const pdfViewer = document.getElementById("pdfViewer");
       fill(voiceEN, ["en"]);
     }
 
+    // ===== Robust voice loading (fix for mobile) =====
+    function ensureVoicesLoaded(){
+      if (!window.speechSynthesis) return;
+
+      const v = window.speechSynthesis.getVoices();
+      if (v && v.length){
+        voices = v;
+        fillVoices();
+        return;
+      }
+      // Retry a few times (mobile often delays voices)
+      setTimeout(ensureVoicesLoaded, 200);
+    }
+
     if (window.speechSynthesis){
+      // Try immediately (desktop)
       fillVoices();
-      window.speechSynthesis.onvoiceschanged = fillVoices;
+
+      // Mobile safe retry
+      ensureVoicesLoaded();
+
+      // Some browsers fire this later
+      window.speechSynthesis.onvoiceschanged = () => {
+        const v = window.speechSynthesis.getVoices();
+        if (v && v.length){
+          voices = v;
+          fillVoices();
+        }
+      };
+
+      // Unlock on first user gesture (important for mobile)
+      const unlock = () => {
+        ensureVoicesLoaded();
+        window.removeEventListener("pointerdown", unlock);
+        window.removeEventListener("touchstart", unlock);
+        window.removeEventListener("click", unlock);
+      };
+      window.addEventListener("pointerdown", unlock, { once:true });
+      window.addEventListener("touchstart", unlock, { once:true });
+      window.addEventListener("click", unlock, { once:true });
     }
 
     function speak(text, lang, selectEl){
       if (!window.speechSynthesis) return;
+      if (!text) return;
+
+      // If voices still not loaded, try again right now
+      if (!voices.length){
+        ensureVoicesLoaded();
+      }
+
       window.speechSynthesis.cancel();
+
       const u = new SpeechSynthesisUtterance(text);
       u.lang = lang;
 
-      const idx = Number(selectEl.value);
-      if (voices[idx]) u.voice = voices[idx];
+      // User selection by index (keep desktop behavior)
+      const idx = Number(selectEl?.value);
+      if (!Number.isNaN(idx) && voices[idx]){
+        u.voice = voices[idx];
+      } else {
+        // fallback by language prefix (mobile-safe)
+        const pref = (lang || "").slice(0,2).toLowerCase();
+        const fallback = voices.find(v => (v.lang || "").toLowerCase().startsWith(pref));
+        if (fallback) u.voice = fallback;
+      }
 
       window.speechSynthesis.speak(u);
     }
@@ -738,6 +795,10 @@ const pdfViewer = document.getElementById("pdfViewer");
             e.stopPropagation();
             const lang = sp.getAttribute("data-lang");
             const text = sp.getAttribute("data-text") || "";
+
+            // Ensure voices loaded before speaking (mobile)
+            ensureVoicesLoaded();
+
             if (lang === "fr") speak(text, "fr-FR", voiceFR);
             if (lang === "ar") speak(text, "ar", voiceAR);
             if (lang === "en") speak(text, "en-US", voiceEN);
