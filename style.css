@@ -925,7 +925,59 @@ header .extended-icon:hover .icon-content{
     -webkit-line-clamp: 2;
     overflow: hidden;
   }
+/* ================= RED ICON ================= */
 
+.extended-icon{
+  width: 92%;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 2px 10px !important;
+  border-radius: 12px;
+}
+
+.icon-content{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.icon-line{
+  font-size: .75rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.icon-line:last-child{
+  font-size: .7rem;
+}
+
+/* ================= GREEN SECTION ================= */
+
+.green-icons-section{
+  margin-top: 45px;
+}
+
+.icons-row{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.green-icon-item{
+  flex: 1;
+  min-width: auto;
+}
+
+.green-icon-box{
+  padding: 6px 4px;
+  min-height: 34px;
+  border-radius: 8px;
+}
+
+.green-icon-text-inside{
+  font-size: .55rem;
+  -webkit-line-clamp: 1;
+}
 /* ================= BOOK SECTION ================= */
 
 #book-zone .book-layout{
