@@ -317,44 +317,119 @@
 
     .back-btn:active{filter:brightness(.98);}
 
-    /* ===== Mobile: tabs ===== */
-    .tabs{
-      width:min(1100px, 96vw);
-      margin:0 auto 10px;
-      display:none;
-      gap:10px;
-      justify-content:center;
-    }
+  /* ===== Mobile: tabs ===== */
+.tabs{
+  width:min(1100px, 96vw);
+  margin:0 auto 10px;
+  display:none;
+  gap:10px;
+  justify-content:center;
+}
 
-    .tab-btn{
-      border:none;
-      cursor:pointer;
-      padding:9px 14px;
-      border-radius:14px;
-      font-family:"Amiri",serif;
-      font-weight:700;
-      font-size:16px;
-      background:linear-gradient(145deg,#c9f0ff,#d4f5e1);
-      box-shadow:
-        0 12px 26px rgba(0,0,0,.14),
-        inset 2px 2px 10px rgba(255,255,255,.75),
-        inset -2px -2px 12px rgba(0,0,0,.10);
-      min-width:110px;
-    }
+.tab-btn{
+  border:none;
+  cursor:pointer;
+  padding:9px 14px;
+  border-radius:14px;
+  font-family:"Amiri",serif;
+  font-weight:700;
+  font-size:16px;
+  background:linear-gradient(145deg,#c9f0ff,#d4f5e1);
+  box-shadow:
+    0 12px 26px rgba(0,0,0,.14),
+    inset 2px 2px 10px rgba(255,255,255,.75),
+    inset -2px -2px 12px rgba(0,0,0,.10);
+  min-width:110px;
+  transition:all .2s ease;
+}
 
-    .tab-btn.active{outline:2px solid rgba(47,133,90,.35);}
+.tab-btn.active{
+  outline:2px solid rgba(47,133,90,.35);
+}
 
-    @media (max-width: 940px){
-      .layout{flex-direction:column;}
-      .left{width:100%; min-width:0;}
-      .viewer-shell iframe{height:680px;}
-      .tabs{display:flex;}
-      .left{display:none;}
-      .left.show{display:flex;}
-      .right.hide{display:none;}
-      .welcome{position:static; text-align:right; padding-bottom:6px;}
-      .title{font-size:30px;}
-    }
+/* =====================================
+   Tablet & Mobile Layout (أقل من 940px)
+===================================== */
+@media (max-width: 940px){
+
+  .layout{
+    flex-direction:column;
+  }
+
+  .left{
+    width:100%;
+    min-width:0;
+    display:none;
+  }
+
+  .left.show{
+    display:flex;
+  }
+
+  .right.hide{
+    display:none;
+  }
+
+  .viewer-shell iframe{
+    height:65vh;
+  }
+
+  .tabs{
+    display:flex;
+  }
+
+  .welcome{
+    position:static;
+    text-align:right;
+    padding-bottom:6px;
+  }
+
+  .title{
+    font-size:28px;
+  }
+
+}
+
+/* =====================================
+   Small Phones (أقل من 600px)
+===================================== */
+@media (max-width: 600px){
+
+  body{
+    padding:12px 8px 18px;
+  }
+
+  .title{
+    font-size:22px;
+  }
+
+  .search{
+    font-size:16px;
+    padding:10px 12px;
+  }
+
+  .tip{
+    font-size:14px;
+    padding:8px 10px;
+  }
+
+  .tab-btn{
+    font-size:14px;
+    padding:7px 10px;
+    min-width:90px;
+  }
+
+  .viewer-shell iframe{
+    height:60vh;
+  }
+
+  .side-buttons button{
+    width:24px;
+    height:52px;
+    font-size:14px;
+  }
+
+}
   </style>
 </head>
 
