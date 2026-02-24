@@ -1041,7 +1041,7 @@ header .extended-icon:hover .icon-content{
 
 /* مساحة المسرح */
 #book-zone .book-stage{
-  height: 260px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
+  height: 360px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
 }
 
 /* الكتاب */
