@@ -981,44 +981,77 @@ header .extended-icon:hover .icon-content{
 /* ================= BOOK SECTION ================= */
 
 #book-zone .book-layout{
-  flex-direction: row;          /* تبقى حول الكتاب */
-  justify-content: center;
-  align-items: center;
-  gap: 12px;                    /* مسافة أصغر */
-}
-
-#book-zone .book-arrows{
-  display: none;                /* نُبقي الأسهم مخفية */
-}
-
-/* حاوية الأيقونات يمين ويسار */
-#book-zone .side-icons{
-  width: auto;
+  position: relative;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
+  gap: 0;
 }
 
-/* ✅ الأيقونات تصبح صغيرة جداً ودائرية */
+/* نخفي الأسهم */
+#book-zone .book-arrows{
+  display: none;
+}
+
+/* =================
+   الأيقونات الخمسة فوق الكتاب بشكل قوس
+================= */
+
+#book-zone .side-icons{
+  position: absolute;
+  top: -10px;              /* يحدد قربها من أعلى الكتاب */
+  width: 100%;
+  height: 120px;
+  pointer-events: auto;
+}
+
+/* الزر نفسه */
 #book-zone .side-icon-btn{
-  width: 58px;
-  height: 58px;
-  min-height: 58px;
-  padding: 6px;
-  font-size: .55rem;
-  border-radius: 50%;           /* الشكل الدائري */
-  text-align: center;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  font-size: .5rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 4px;
 }
 
-/* تقليل مساحة الكتاب */
+/* توزيع القوس */
+#book-zone .side-icon-btn:nth-child(1){
+  left: 10%;
+  top: 60px;
+}
+
+#book-zone .side-icon-btn:nth-child(2){
+  left: 25%;
+  top: 20px;
+}
+
+#book-zone .side-icon-btn:nth-child(3){
+  left: 45%;
+  top: 0px;
+}
+
+#book-zone .side-icon-btn:nth-child(4){
+  right: 25%;
+  top: 20px;
+}
+
+#book-zone .side-icon-btn:nth-child(5){
+  right: 10%;
+  top: 60px;
+}
+
+/* =================
+   تصغير الكتاب
+================= */
+
 #book-zone .book-stage{
-  height: 260px;
+  height: 300px;
 }
 
-/* ✅ تصغير الكتاب إلى ثلث تقريباً */
 #book-zone .book-wrap{
-  transform: scale(0.35);
+  transform: scale(0.45);
 }
