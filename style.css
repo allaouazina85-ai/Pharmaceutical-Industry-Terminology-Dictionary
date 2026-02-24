@@ -1008,7 +1008,6 @@ header .extended-icon:hover .icon-content{
 }
 
 /* ✅ MOBILE: تصغير أيقونات الكتاب فقط */
-@media (max-width: 768px){
 
   #book-zone .side-icon-btn{
     width: 36px !important;
