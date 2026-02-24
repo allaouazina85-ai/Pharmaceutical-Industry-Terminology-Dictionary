@@ -561,7 +561,15 @@ const data = [
 {"id":31,"page":11,"fr":"Acétate d'abiratérone","ar":"أسيتات أبيراتيرون","en":"Abiraterone acetate","kw_fr":"acetate abiraterone","kw_ar":"اسيتات ابيراتيرون","kw_en":"abiraterone acetate"},
 
 {"id":32,"page":11,"fr":"Acétate de flécainide","ar":"أسيتات فليكاينيد","en":"Flecainide acetate","kw_fr":"acetate flecainide","kw_ar":"اسيتات فليكاينيد","kw_en":"flecainide acetate"}
-]; // ===== Tabs (mobile) =====
+];
+    // ===== DOM References =====
+const input = document.getElementById("searchInput");
+const resultsEl = document.getElementById("results");
+const emptyEl = document.getElementById("emptyState");
+const pdfViewer = document.getElementById("pdfViewer");
+
+    
+    // ===== Tabs (mobile) =====
     const tabSearch = document.getElementById("tabSearch");
     const tabSource = document.getElementById("tabSource");
     const rightPanel = document.getElementById("rightPanel");
