@@ -1009,8 +1009,8 @@ header .extended-icon:hover .icon-content{
 
 /* ✅ تصغير الأيقونات وتصبح دائرية */
 #book-zone .side-icon-btn{
-  width: 44px;
-  height: 44px;
+  width: 20px;
+  height: 40px;
   min-height: 44px;
   padding: 4px;
   border-radius: 50%;
