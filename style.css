@@ -1002,7 +1002,7 @@ header .extended-icon:hover .icon-content{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap:11px;
   flex-wrap: nowrap;
   z-index: 3;
 }
