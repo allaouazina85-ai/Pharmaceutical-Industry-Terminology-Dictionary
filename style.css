@@ -1018,33 +1018,57 @@ header .extended-icon:hover .icon-content{
   padding: 4px;
 }
 
-/* توزيع القوس */
+/* =================
+   الأيقونات فوق الكتاب – قوس صغير متناسق
+================= */
+
+#book-zone .side-icons{
+  position: absolute;
+  top: -40px;        /* رفعها فوق الكتاب */
+  width: 100%;
+  height: 90px;      /* مساحة أصغر */
+}
+
+/* تصغير فعلي للأيقونات */
+#book-zone .side-icon-btn{
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  font-size: .42rem;
+  border-radius: 50%;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* توزيع قوس متناسق وصغير */
+
 #book-zone .side-icon-btn:nth-child(1){
-  left: 10%;
-  top: 60px;
+  left: 8%;
+  top: 55px;
 }
 
 #book-zone .side-icon-btn:nth-child(2){
   left: 25%;
-  top: 20px;
+  top: 25px;
 }
 
 #book-zone .side-icon-btn:nth-child(3){
-  left: 45%;
-  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
 }
 
 #book-zone .side-icon-btn:nth-child(4){
   right: 25%;
-  top: 20px;
+  top: 25px;
 }
 
 #book-zone .side-icon-btn:nth-child(5){
-  right: 10%;
-  top: 60px;
-}
-
-/* =================
+  right: 8%;
+  top: 55px;
+}/* =================
    تصغير الكتاب
 ================= */
 
