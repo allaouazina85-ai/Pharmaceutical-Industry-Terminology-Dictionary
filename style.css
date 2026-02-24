@@ -985,37 +985,66 @@ header .extended-icon:hover .icon-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  gap: 4px; /* 🔥 تقليل المسافة بين الأيقونات والكتاب */
+  gap: 8px;        /* كان 12px */
+  --book-gap: 10px; /* ✅ عدّلي هذا الرقم فقط */
 }
 
+/* ✅ نفس المسافة فوق وتحت الكتاب */
+#book-zone .book-stage{
+  margin:4px 0 18px 0 !important;  /* أعلى، يمين، أسفل، يسار */
+}
 /* إخفاء الأسهم في الهاتف */
 #book-zone .book-arrows{
   display: none;
 }
 
-/* الأيقونات فوق الكتاب */
+/* الأيقونات في صف أفقي فوق الكتاب */
 #book-zone .side-icons{
+  position: static;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 18px;                 /* ✅ زيادة التباعد بين الأيقونات */
+  flex-wrap: wrap;           /* ✅ يسمح بنزول سطر ثاني بدل التداخل */
+  z-index: 3;
 
-  padding: 0 !important;
-  margin-bottom: 0 !important;
+  padding: 8px 0;            /* ✅ مساحة بسيطة حول الأيقونات */
 }
 
-/* ضبط المسافة حول الكتاب */
+/* ✅ تكبير الأيقونات + إبقاؤها دائرية */
+#book-zone .side-icon-btn{
+  flex: 0 0 auto !important;
+  min-width: 0 !important;
+
+  width: 62px !important;    /* ✅ كان 36px */
+  height: 62px !important;   /* ✅ كان 36px */
+  min-height: 62px !important;
+
+  padding: 6px !important;   /* ✅ كان 2px */
+  border-radius: 50% !important;
+
+  font-size: .70rem !important;  /* ✅ كان .42rem */
+  line-height: 1.15 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  overflow: hidden;
+}
+
+/* مساحة المسرح */
 #book-zone .book-stage{
-  margin: 4px 0 6px 0 !important; /* 🔥 مسافة صغيرة ومتوازنة */
+  height: 320px;             /* ✅ كان 280px حتى لا يقترب الكتاب من الأيقونات */
 }
 
-/* الكتاب بدون رفع اصطناعي */
+/* الكتاب */
 #book-zone .book-wrap{
-  transform: scale(0.45) !important;
+  transform: scale(0.45);    /* نفس القيمة كما طلبت */
 }
