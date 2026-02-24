@@ -1007,21 +1007,25 @@ header .extended-icon:hover .icon-content{
   z-index: 3;
 }
 
-/* ✅ تصغير الأيقونات وتصبح دائرية */
-#book-zone .side-icon-btn{
-  width: 20px;
-  height: 40px;
-  min-height: 44px;
-  padding: 4px;
-  border-radius: 50%;
-  font-size: .45rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.1;
-}
+/* ✅ MOBILE: تصغير أيقونات الكتاب فقط */
+@media (max-width: 768px){
 
+  #book-zone .side-icon-btn{
+    width: 36px !important;
+    height: 36px !important;
+    min-height: 36px !important;   /* مهم: لا تتركيها 0 */
+    padding: 2px !important;
+    border-radius: 50% !important;
+    font-size: .42rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.1 !important;
+    overflow: hidden;
+  }
+
+}
 /* ✅ تصغير الكتاب */
 #book-zone .book-stage{
   height: 300px;
