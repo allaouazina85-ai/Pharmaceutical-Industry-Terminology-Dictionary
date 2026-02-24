@@ -2,7 +2,7 @@
 // FILE: app.js  (نسخة مبسطة نهائية)
 // ✅ حذف كل تفاعلات الهيدر
 // ✅ تفاعل بسيط فقط على الإيقونة الحمراء
-// ✅ تقليل سرعة دوران الكتاب
+// ✅ زيادة بسيطة لسرعة دوران الكتاب على الهاتف فقط
 // ===============================
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,42 +25,55 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-/* =========================
-   ✅ دوران الكتاب (أبطأ)
-========================== */
-const book = document.getElementById('book3d');
-const bg1 = document.getElementById('bg1');
-const bg2 = document.getElementById('bg2');
+  /* =========================
+     ✅ دوران الكتاب (سرعة مختلفة للهاتف فقط)
+  ========================== */
+  const book = document.getElementById('book3d');
+  const bg1 = document.getElementById('bg1');
+  const bg2 = document.getElementById('bg2');
 
-if (book && bg1 && bg2) {
-  let ry = -18, rx = 2, g = 0;
+  if (book && bg1 && bg2) {
+    let ry = -18, rx = 2, g = 0;
 
-  const ROT_SPEED = 0.12;     // أبطأ
-  const GLOSS_SPEED = 0.008;  // أبطأ
+    // ✅ هاتف فقط (<= 768px)
+    const mq = window.matchMedia('(max-width: 768px)');
 
-  function tick(){
-    ry += ROT_SPEED;
-    book.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+    // ✅ الحاسوب يبقى كما هو، الهاتف أسرع قليلًا
+    let ROT_SPEED = mq.matches ? 0.22 : 0.12;
+    let GLOSS_SPEED = mq.matches ? 0.012 : 0.008;
 
-    g += GLOSS_SPEED;
-    const gx = -60 + Math.sin(g) * 55;
-    bg1.style.transform = `translateX(${gx}%)`;
-    bg2.style.transform = `translateX(${gx}%)`;
+    // ✅ تحديث السرعات عند تدوير الهاتف/تغيير حجم الشاشة
+    function updateSpeeds() {
+      ROT_SPEED = mq.matches ? 0.22 : 0.12;
+      GLOSS_SPEED = mq.matches ? 0.012 : 0.008;
+    }
 
-    requestAnimationFrame(tick);
+    if (mq.addEventListener) mq.addEventListener('change', updateSpeeds);
+    else mq.addListener(updateSpeeds);
+
+    function tick() {
+      ry += ROT_SPEED;
+      book.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+
+      g += GLOSS_SPEED;
+      const gx = -60 + Math.sin(g) * 55;
+      bg1.style.transform = `translateX(${gx}%)`;
+      bg2.style.transform = `translateX(${gx}%)`;
+
+      requestAnimationFrame(tick);
+    }
+    tick();
   }
-  tick();
-}
 
-/* =========================
-   ✅ سنة تلقائية + تفاعل خفيف للفوتر
-========================== */
-const fy = document.getElementById('footerYear');
-if (fy) fy.textContent = new Date().getFullYear();
+  /* =========================
+     ✅ سنة تلقائية + تفاعل خفيف للفوتر
+  ========================== */
+  const fy = document.getElementById('footerYear');
+  if (fy) fy.textContent = new Date().getFullYear();
 
-document.querySelectorAll('.soc').forEach(a => {
-  a.addEventListener('mouseenter', () => a.classList.add('is-hover'));
-  a.addEventListener('mouseleave', () => a.classList.remove('is-hover'));
-});
+  document.querySelectorAll('.soc').forEach(a => {
+    a.addEventListener('mouseenter', () => a.classList.add('is-hover'));
+    a.addEventListener('mouseleave', () => a.classList.remove('is-hover'));
+  });
 
 });
