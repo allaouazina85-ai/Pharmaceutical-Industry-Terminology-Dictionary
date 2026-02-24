@@ -985,10 +985,10 @@ header .extended-icon:hover .icon-content{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  gap: 8px;        /* كان 12px */
-  --book-gap: 10px; /* ✅ عدّلي هذا الرقم فقط */
+  gap: 8px;
+  --book-gap: 10px;
 }
 
 /* ✅ نفس المسافة فوق وتحت الكتاب */
