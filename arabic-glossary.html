@@ -323,7 +323,7 @@ function loadPage(page){
   pageNum = page;
   pageNumEl.textContent = pageNum;
 
-  pdfFrame.src = `${PDF_FILE}#page=${pageNum}&zoom=${zoomPct}`;
+  pdfFrame.src = `pdfjs/web/viewer.html?file=${PDF_FILE}#page=${pageNum}&zoom=${zoomPct}`;
 }
 
 function nextPage(){
