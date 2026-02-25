@@ -577,11 +577,11 @@ function highlightIndex(){
   }
 }
 
-/* ✅ مهم: إجبار iframe على إعادة تحميل الصفحة المطلوبة */
 function loadPdfPage(page){
-  const target = PDF_FILE + "#page=" + page;
-  pdfFrame.src = "about:blank";
-  setTimeout(() => { pdfFrame.src = target; }, 30);
+  pdfFrame.src =
+    "pdfjs/web/viewer.html?file=../../" +
+    PDF_FILE +
+    "#page=" + page;
 }
 
 function updatePage(){
