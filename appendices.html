@@ -43,15 +43,24 @@ body{
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
 }
+
 .header .welcome{
+  grid-column:1;
+  justify-self:start;
   color:#1b7f5f;
   font-size:18px;
 }
+
 .header h1{
+  grid-column:2;
+  justify-self:center;
   margin:0;
   color:#1b7f5f;
   font-size:30px;
+  line-height:1.1;
 }
+
+.header .spacer{ grid-column:3; }
 
 /* Layout */
 .viewer-wrapper{
@@ -59,17 +68,22 @@ body{
   grid-template-columns: 1fr 3fr;
   gap:18px;
   padding:12px 0 0;
+  align-items:stretch;
 }
 
+/* Index */
 .index-panel{
   border-radius:28px;
   padding:14px;
   color:white;
   background:radial-gradient(circle at 20% 20%, #222 0%, #111 40%, #000 100%);
-  box-shadow:0 30px 60px rgba(0,0,0,0.6);
+  box-shadow:
+    inset 0 0 40px rgba(255,255,255,0.05),
+    0 30px 60px rgba(0,0,0,0.6);
   height: clamp(520px, 70vh, 760px);
   display:flex;
   flex-direction:column;
+  gap:10px;
 }
 
 .index-list{
@@ -84,6 +98,7 @@ body{
   display:flex;
   justify-content:space-between;
 }
+
 .index-list li.active{
   background: rgba(0, 200, 255, 0.22);
 }
@@ -102,7 +117,7 @@ body{
   flex-wrap:wrap;
   gap:10px;
   padding:10px 12px;
-  background:#ffffff;
+  background:rgba(255,255,255,0.90);
 }
 
 .controls button{
@@ -110,6 +125,8 @@ body{
   border:none;
   border-radius:10px;
   cursor:pointer;
+  background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.10);
 }
 
 .controls input{
@@ -130,40 +147,39 @@ iframe{
 }
 
 /* Responsive */
-@media (max-width:900px){
+@media (max-width: 900px){
   .viewer-wrapper{ grid-template-columns:1fr; }
   .index-panel{ height:300px; }
 }
 
-@media (max-width:520px){
+@media (max-width: 520px){
 
-  body{ padding:10px; }
+  body{ padding:10px 10px 0; }
 
-  .header h1{ font-size:20px; }
-  .header .welcome{ font-size:14px; }
-
-  .index-panel{
-    height:240px;
-    padding:10px;
+  .header{
+    padding:14px 14px;
+    grid-template-columns: 1fr auto;
+    row-gap:6px;
   }
 
-  .index-list li{
-    font-size:14px;
-    padding:8px;
-  }
+  .header .welcome{ font-size:16px; }
+  .header h1{ font-size:24px; }
+  .header .spacer{ display:none; }
 
+  .controls input{ width:140px; }
+
+  /* تحسين العارض للهاتف فقط */
+  .viewer{ border-radius:22px; }
+  iframe{
+    height:60vh;
+    border-radius:14px;
+  }
   .controls button{
     font-size:13px;
     padding:6px 8px;
   }
-
-  .controls input{
-    width:120px;
-  }
-
-  iframe{
-    height:60vh;
-    border-radius:14px;
+  .index-panel{
+    height:260px;
   }
 }
 </style>
@@ -174,6 +190,7 @@ iframe{
 <div class="header">
   <div class="welcome amiri">مرحبا بك</div>
   <h1 class="amiri">الملاحق</h1>
+  <div class="spacer"></div>
 </div>
 
 <div class="viewer-wrapper">
@@ -182,9 +199,6 @@ iframe{
     <div class="index-list">
       <ul>
         <li onclick="goFromIndex(463)">بداية الملاحق <small>463</small></li>
-        <li onclick="goFromIndex(470)">ملحق 2 <small>470</small></li>
-        <li onclick="goFromIndex(480)">ملحق 3 <small>480</small></li>
-        <li onclick="goFromIndex(499)">ملحق 4 <small>499</small></li>
       </ul>
     </div>
   </div>
@@ -194,22 +208,25 @@ iframe{
 
       <div class="controls">
         <div>
-          <input type="number" id="searchPage" placeholder="رقم الصفحة">
+          <input type="number" id="searchPage" placeholder="رقم الصفحة (463 - 507)">
           <button onclick="goToPage()">بحث</button>
         </div>
 
         <div>
+          <button onclick="downloadPDF()">تحميل</button>
+          <button onclick="printPDF()">طباعة</button>
+          <button onclick="rotatePDF()">تدوير</button>
           <button onclick="prevPage()">السابق</button>
           <button onclick="nextPage()">التالي</button>
         </div>
 
         <div>
-          صفحة <span id="currentPage">463</span>
+          صفحة <span id="currentPage">463</span> / <span id="endPage">507</span>
         </div>
       </div>
 
       <div class="pdf-wrap">
-        <!-- ✅ استخدام PDF.js -->
+        <!-- ✅ تم التعديل لاستخدام PDF.js -->
         <iframe id="pdfFrame"
           src="pdfjs/web/viewer.html?file=../../source.pdf#page=463">
         </iframe>
@@ -221,23 +238,34 @@ iframe{
 </div>
 
 <script>
-const PDF_FILE = "source.pdf";
+const PDF_FILE  = "source.pdf";
 const START_PAGE = 463;
-const END_PAGE = 507;
+const END_PAGE   = 507;
 
 let currentPage = START_PAGE;
+let rotation = 0;
+
 const pdfFrame = document.getElementById("pdfFrame");
 const searchInput = document.getElementById("searchPage");
 const currentPageEl = document.getElementById("currentPage");
+const endPageEl = document.getElementById("endPage");
 
-function clampPage(p){
-  return Math.max(START_PAGE, Math.min(END_PAGE, p));
+endPageEl.textContent = END_PAGE;
+searchInput.min = START_PAGE;
+searchInput.max = END_PAGE;
+
+function clampPage(page){
+  if (page < START_PAGE) return START_PAGE;
+  if (page > END_PAGE) return END_PAGE;
+  return page;
 }
 
 /* ✅ تحميل مباشر عبر PDF.js بدون about:blank */
 function loadPdfPage(page){
   pdfFrame.src =
-    `pdfjs/web/viewer.html?file=../../${PDF_FILE}#page=${page}`;
+    "pdfjs/web/viewer.html?file=../../" +
+    PDF_FILE +
+    "#page=" + page;
 }
 
 function updatePage(){
@@ -246,29 +274,46 @@ function updatePage(){
 }
 
 function goFromIndex(page){
-  currentPage = clampPage(page);
+  currentPage = clampPage(Number(page));
   updatePage();
 }
 
 function goToPage(){
   const page = Number(searchInput.value);
-  if(!page) return;
-  currentPage = clampPage(page);
+  if (!page || page < START_PAGE || page > END_PAGE){
+    alert("الرجاء إدخال رقم بين " + START_PAGE + " و " + END_PAGE);
+    return;
+  }
+  currentPage = page;
   updatePage();
 }
 
 function nextPage(){
-  if(currentPage < END_PAGE){
+  if (currentPage < END_PAGE){
     currentPage++;
     updatePage();
   }
 }
 
 function prevPage(){
-  if(currentPage > START_PAGE){
+  if (currentPage > START_PAGE){
     currentPage--;
     updatePage();
   }
+}
+
+function downloadPDF(){
+  window.open(PDF_FILE);
+}
+
+function printPDF(){
+  pdfFrame.contentWindow.focus();
+  pdfFrame.contentWindow.print();
+}
+
+function rotatePDF(){
+  rotation += 90;
+  pdfFrame.style.transform = "rotate(" + rotation + "deg)";
 }
 
 updatePage();
