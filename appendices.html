@@ -527,7 +527,7 @@ iframe{
       </div>
 
       <div class="pdf-wrap">
-       <iframe id="pdfFrame" src="pdfjs/web/viewer.html?file=../../source.pdf#page=463"></iframe>
+      <iframe id="pdfFrame"></iframe>
       </div>
 
     </div>
@@ -540,7 +540,7 @@ iframe{
 </div>
 
 <script>
-const PDF_FILE  = "source.pdf";
+const PDF_FILE  = "pdfjs/web/viewer.html?file=../../source.pdf";
 const START_PAGE = 463;
 const END_PAGE   = 507;
 
@@ -578,10 +578,7 @@ function highlightIndex(){
 }
 
 function loadPdfPage(page){
-  pdfFrame.src =
-    "pdfjs/web/viewer.html?file=../../" +
-    PDF_FILE +
-    "#page=" + page;
+  pdfFrame.src = PDF_FILE + "#page=" + page;
 }
 
 function updatePage(){
