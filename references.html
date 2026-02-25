@@ -6,9 +6,6 @@
 <title>قائمة المصادر و المراجع</title>
 
 <style>
-/* =========================
-   Amiri Local (Offline)
-   ========================= */
 @font-face{
   font-family: "AmiriLocal";
   src: url("fonts/Amiri-Regular.woff2") format("woff2");
@@ -39,16 +36,13 @@ body{
   font-weight:700;
 }
 
-/* =========================
-   Header
-   ========================= */
+/* ================= Header ================= */
 .header{
   background:#ffffffcc;
   backdrop-filter:blur(10px);
   padding:18px 20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.10);
   border-radius:20px;
-
   display:grid;
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
@@ -72,25 +66,20 @@ body{
 
 .header .spacer{ grid-column:3; }
 
-/* =========================
-   Notice
-   ========================= */
+/* ================= Notice ================= */
 .notice{
   margin:16px 0 10px;
-  padding:14px 14px;
+  padding:14px;
   background:#dceeff;
   border-radius:15px;
   text-align:center;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
   font-size:18px;
-
   display:flex;
   align-items:center;
   justify-content:center;
   gap:10px;
   flex-wrap:wrap;
-
-  /* ✅ لضبط اليسار/اليمين بشكل ثابت */
   direction:ltr;
 }
 
@@ -100,64 +89,15 @@ body{
   direction:rtl;
 }
 
-/* =========================
-   Assistant Button (Tooltip)
-   ========================= */
-.assistant-wrap{
-  position:relative;
-  display:inline-block;
-}
-
-.assistant-btn{
-  border:none;
-  cursor:pointer;
-  border-radius:14px;
-  padding:8px 12px;
-  font-size:15px;
-  background:rgba(0,0,0,0.08);
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
-}
-
-.assistant-btn:hover{
-  background:rgba(0,0,0,0.12);
-}
-
-.assistant-tip{
-  position:absolute;
-  top:calc(100% + 10px);
-  left:0;     /* ✅ لأن المساعد على اليسار */
-  right:auto; /* ✅ */
-  width:min(360px, 86vw);
-  padding:12px 14px;
-  border-radius:16px;
-  background:rgba(0,0,0,0.82);
-  color:#fff;
-  box-shadow:0 18px 40px rgba(0,0,0,0.35);
-  display:none;
-  z-index:9999;
-  line-height:1.8;
-  direction:rtl;
-  text-align:right;
-}
-
-.assistant-tip.show{
-  display:block;
-}
-
-/* =========================
-   Layout
-   ========================= */
+/* ================= Layout ================= */
 .viewer-wrapper{
   display:grid;
   grid-template-columns: 1fr 3fr;
   gap:18px;
   padding:12px 0 0;
-  align-items:stretch;
 }
 
-/* =========================
-   Index Panel
-   ========================= */
+/* ================= Index ================= */
 .index-panel{
   border-radius:28px;
   padding:14px;
@@ -166,7 +106,6 @@ body{
   box-shadow:
     inset 0 0 40px rgba(255,255,255,0.05),
     0 30px 60px rgba(0,0,0,0.6);
-
   height: clamp(520px, 70vh, 760px);
   display:flex;
   flex-direction:column;
@@ -179,56 +118,14 @@ body{
   padding:10px 12px;
   border-radius:16px;
   background:rgba(255,255,255,0.06);
-  box-shadow: inset 0 0 18px rgba(255,255,255,0.05);
 }
 
-/* ✅ أزرار تصفية الفهرس */
-.index-filters{
-  display:flex;
-  gap:8px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-
-.filter-btn{
-  border:none;
-  cursor:pointer;
-  border-radius:12px;
-  padding:8px 10px;
-  font-size:14px;
-  color:#fff;
-  background:rgba(255,255,255,0.08);
-  box-shadow: inset 0 0 18px rgba(255,255,255,0.05);
-  transition:0.2s;
-  min-width:56px;
-}
-.filter-btn:hover{
-  background:rgba(255,255,255,0.12);
-}
-.filter-btn.active{
-  background: rgba(0, 200, 255, 0.22);
-  box-shadow:
-    0 0 0 2px rgba(0, 200, 255, 0.35),
-    0 10px 25px rgba(0,0,0,0.55);
-}
-
-/* منطقة تمرير العناوين */
 .index-list{
   flex:1;
   overflow:auto;
   padding:6px;
   border-radius:18px;
   background:rgba(255,255,255,0.03);
-}
-
-.index-list::-webkit-scrollbar{ width:8px; }
-.index-list::-webkit-scrollbar-thumb{
-  background:rgba(255,255,255,0.18);
-  border-radius:10px;
-}
-.index-list::-webkit-scrollbar-track{
-  background:rgba(255,255,255,0.06);
-  border-radius:10px;
 }
 
 .index-list ul{
@@ -238,43 +135,22 @@ body{
 }
 
 .index-list li{
-  padding:10px 10px;
+  padding:10px;
   border-radius:12px;
   cursor:pointer;
-  transition:0.2s;
-  user-select:none;
   display:flex;
   justify-content:space-between;
-  gap:10px;
-  align-items:flex-start;
 }
 
-.index-list li:hover{
-  background:rgba(255,255,255,0.10);
-}
-
-.index-list small{ opacity:0.85; }
-
-/* ✅ تمييز العنصر المختار */
 .index-list li.active{
   background: rgba(0, 200, 255, 0.22);
-  box-shadow:
-    0 0 0 2px rgba(0, 200, 255, 0.35),
-    0 10px 25px rgba(0,0,0,0.55);
-}
-.index-list li.active small{
-  opacity: 1;
-  font-weight: 700;
 }
 
-/* =========================
-   Viewer
-   ========================= */
+/* ================= Viewer ================= */
 .viewer{
   border-radius:28px;
   overflow:hidden;
-  background:radial-gradient(circle at 30% 15%, #5a5a5a 0%, #2b2b2b 40%, #1f1f1f 100%);
-  box-shadow:0 30px 60px rgba(0,0,0,0.35);
+  background:#2b2b2b;
 }
 
 .controls{
@@ -283,7 +159,7 @@ body{
   flex-wrap:wrap;
   gap:10px;
   padding:10px 12px;
-  background:rgba(255,255,255,0.90);
+  background:#ffffff;
 }
 
 .controls button{
@@ -291,8 +167,6 @@ body{
   border:none;
   border-radius:10px;
   cursor:pointer;
-  background:#fff;
-  box-shadow:0 4px 10px rgba(0,0,0,0.10);
 }
 
 .controls input{
@@ -302,59 +176,37 @@ body{
   width:160px;
 }
 
-.page-badge{ white-space:nowrap; }
-
 .pdf-wrap{ padding:14px; }
+
 iframe{
   width:100%;
   height: clamp(420px, 65vh, 680px);
   border:none;
   border-radius:18px;
   background:#fff;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-/* Footer */
-.footer{
-  padding:16px 0 26px;
-  display:flex;
-  justify-content:center;
-}
-
-.back-btn{
-  padding:12px 18px;
-  border:none;
-  border-radius:16px;
-  cursor:pointer;
-  background:#ffffff;
-  box-shadow:0 10px 25px rgba(0,0,0,0.15);
-  font-size:16px;
-}
-
-/* =========================
-   Responsive
-   ========================= */
+/* ================= Responsive ================= */
 @media (max-width: 900px){
   .viewer-wrapper{ grid-template-columns: 1fr; }
-  .viewer-container{ order:1; }
-  .index-panel{ order:2; height: 320px; }
-  iframe{ height:58vh; }
+  .index-panel{ height:320px; }
 }
 
 @media (max-width: 520px){
-  body{ padding:10px 10px 0; }
+  body{ padding:10px; }
 
-  .header{
-    padding:14px 14px;
-    grid-template-columns: 1fr auto;
-    row-gap:6px;
-  }
-  .header .welcome{ font-size:16px; }
-  .header h1{ font-size:24px; }
-  .header .spacer{ display:none; }
+  .header h1{ font-size:20px; }
+  .header .welcome{ font-size:14px; }
 
-  .notice{ font-size:16px; padding:12px; }
-  .controls input{ width:140px; }
+  .index-panel{ height:260px; padding:10px; }
+  .index-title{ font-size:16px; }
+
+  .index-list li{ font-size:14px; padding:8px; }
+
+  .controls button{ font-size:13px; padding:6px 8px; }
+  .controls input{ width:120px; }
+
+  iframe{ height:55vh; }
 }
 </style>
 </head>
@@ -367,296 +219,94 @@ iframe{
   <div class="spacer"></div>
 </div>
 
-<!-- ✅ الشريط: المساعد على اليسار + النص الجديد -->
-<div class="notice amiri">
-  <div class="assistant-wrap">
-    <button type="button" class="assistant-btn amiri" id="assistantBtn"
-            aria-expanded="false" aria-controls="assistantTip">
-      المساعد
-    </button>
-
-    <div class="assistant-tip amiri" id="assistantTip" role="tooltip">
-      استخدم أزرار AR / FR / EN / الكل لتصفية الفهرس حسب اللغة.<br><br>
-      اضغط على العنوان من الفهرس لفتح صفحته مباشرة في العارض.<br><br>
-      البحث اليدوي متاح بكتابة رقم الصفحة ثم الضغط على بحث.
-    </div>
-  </div>
-
-  <span class="notice-text amiri">الصناعة الصيدلانية</span>
-</div>
-
 <div class="viewer-wrapper">
 
-  <!-- ✅ لوحة الفهرس -->
-  <div class="index-panel">
-    <div class="index-title amiri">فهرس</div>
-
-    <div class="index-filters amiri">
-      <button class="filter-btn" id="btnAR" onclick="applyIndexFilter('ar')">AR</button>
-      <button class="filter-btn" id="btnFR" onclick="applyIndexFilter('fr')">FR</button>
-      <button class="filter-btn" id="btnEN" onclick="applyIndexFilter('en')">EN</button>
-      <button class="filter-btn active" id="btnALL" onclick="applyIndexFilter('all')">الكل</button>
-    </div>
-
-    <div class="index-list">
-      <ul class="amiri">
-        <li data-page="459" data-lang="fr" onclick="goFromIndex(464)">
-          <span>اﻟﻤﺼﺎدر اﻟﻘﺎﻧﻮﻧﯿﺔ و اﻟﺘﺸﺮﯾﻌﯿﺔ</span>
-          <small>459</small>
-        </li>
-
-        <li data-page="461" data-lang="ar" onclick="goFromIndex(466)">
-          <span>اﻟﻤﺮاﺟﻊ اﻟﻌﻠﻤﯿﺔ ﺑﺎﻟﻠﻐﺔ اﻟﻌﺮﺑﯿﺔ</span>
-          <small>461</small>
-        </li>
-
-        <li data-page="461" data-lang="en" onclick="goFromIndex(468)">
-          <span>اﻟﻤﺮاﺟﻊ اﻟﻌﻠﻤﯿﺔ ﺑﺎﻟﻠﻐﺔ اﻟﻔﺮﻧﺴﯿﺔ و اﻹﻧﮕﻠﯿﺰﯾّﺔ</span>
-          <small>461</small>
-        </li>
-
-        <li data-page="462" data-lang="fr" onclick="goFromIndex(470)">
-          <span>اﻟﻤﻮاﻗﻊ اﻟﺪوﻟﯿﺔ:</span>
-          <small>462</small>
-        </li>
-
-       
-
-        <li data-page="462" data-lang="en" onclick="goFromIndex(474)">
-          <span>اﻟﻘﻮاﻣﯿﺲ و اﻟﻤﻌﺎﺟﻢ:</span>
-          <small>462</small>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- العارض -->
-  <div class="viewer-container">
-    <div class="viewer">
-
-      <div class="controls" id="searchBar">
-        <div>
-          <input type="number" id="searchPage" placeholder="رقم الصفحة (462 - 458)">
-          <button onclick="goToPage()">بحث</button>
-        </div>
-
-        <div>
-          <button onclick="downloadPDF()">تحميل</button>
-          <button onclick="printPDF()">طباعة</button>
-          <button onclick="rotatePDF()">تدوير</button>
-          <button onclick="prevPage()">السابق</button>
-          <button onclick="nextPage()">التالي</button>
-        </div>
-
-        <div class="page-badge">
-          صفحة <span id="currentPage">458</span> / <span id="endPage">462</span>
-        </div>
-      </div>
-
-      <div class="pdf-wrap">
-        <iframe id="pdfFrame" src="source.pdf#page=458"></iframe>
-      </div>
-
-    </div>
-  </div>
-
+<div class="index-panel">
+<div class="index-title amiri">فهرس</div>
+<div class="index-list">
+<ul class="amiri">
+<li onclick="goFromIndex(458)">المصادر القانونية و التشريعية <small>458</small></li>
+<li onclick="goFromIndex(459)">المراجع العلمية باللغة العربية <small>459</small></li>
+<li onclick="goFromIndex(460)">المراجع العلمية بالفرنسية و الإنجليزية <small>460</small></li>
+<li onclick="goFromIndex(461)">المواقع الدولية <small>461</small></li>
+<li onclick="goFromIndex(462)">القواميس و المعاجم <small>462</small></li>
+</ul>
+</div>
 </div>
 
-<div class="footer">
-  <button class="back-btn" onclick="goHome()">الرجوع لصفحة الرئيسية</button>
+<div class="viewer-container">
+<div class="viewer">
+<div class="controls">
+<div>
+<input type="number" id="searchPage" placeholder="رقم الصفحة">
+<button onclick="goToPage()">بحث</button>
+</div>
+<div>
+<button onclick="prevPage()">السابق</button>
+<button onclick="nextPage()">التالي</button>
+</div>
+<div>
+صفحة <span id="currentPage">458</span>
+</div>
+</div>
+
+<div class="pdf-wrap">
+<iframe id="pdfFrame" src="pdfjs/web/viewer.html?file=../../source.pdf#page=458"></iframe>
+</div>
+</div>
+</div>
+
 </div>
 
 <script>
-const PDF_FILE  = "source.pdf";
+const PDF_FILE = "source.pdf";
 const START_PAGE = 458;
-const END_PAGE   = 462;
+const END_PAGE = 462;
 
 let currentPage = START_PAGE;
-let rotation = 0;
-let currentFilter = "all";
-
 const pdfFrame = document.getElementById("pdfFrame");
 const searchInput = document.getElementById("searchPage");
 const currentPageEl = document.getElementById("currentPage");
-const endPageEl = document.getElementById("endPage");
-const searchBar = document.getElementById("searchBar");
 
-endPageEl.textContent = END_PAGE;
-searchInput.min = START_PAGE;
-searchInput.max = END_PAGE;
-
-function clampPage(page){
-  if (page < START_PAGE) return START_PAGE;
-  if (page > END_PAGE) return END_PAGE;
-  return page;
+function clampPage(p){
+  return Math.max(START_PAGE, Math.min(END_PAGE, p));
 }
 
-function highlightIndex(){
-  const items = document.querySelectorAll(".index-list li[data-page]");
-  items.forEach(li => li.classList.remove("active"));
-
-  const active = document.querySelector('.index-list li[data-page="' + currentPage + '"]');
-  if(active){
-    active.classList.add("active");
-    if (active.style.display !== "none") {
-      active.scrollIntoView({ block: "nearest", behavior: "smooth" });
-    }
-  }
-}
-
-/* ✅ مهم: إجبار iframe على إعادة تحميل الصفحة المطلوبة */
 function loadPdfPage(page){
-  const target = PDF_FILE + "#page=" + page;
-  pdfFrame.src = "about:blank";
-  setTimeout(() => { pdfFrame.src = target; }, 30);
+  pdfFrame.src = `pdfjs/web/viewer.html?file=../../source.pdf#page=${page}`;
 }
 
 function updatePage(){
   loadPdfPage(currentPage);
   currentPageEl.textContent = currentPage;
-  highlightIndex();
 }
 
-/* ✅ من الفهرس: يملأ البحث + ينفذ البحث تلقائيًا */
 function goFromIndex(page){
-  const p = clampPage(Number(page));
-  searchInput.value = p;
-
-  searchBar.scrollIntoView({ behavior: "smooth", block: "start" });
-  searchInput.focus();
-  searchInput.select();
-
-  currentPage = p;
+  currentPage = clampPage(page);
   updatePage();
 }
 
 function goToPage(){
   const page = Number(searchInput.value);
-  if (!page || page < START_PAGE || page > END_PAGE){
-    alert("الرجاء إدخال رقم بين " + START_PAGE + " و " + END_PAGE);
-    return;
-  }
-  currentPage = page;
+  if(!page) return;
+  currentPage = clampPage(page);
   updatePage();
 }
 
 function nextPage(){
-  if (currentPage < END_PAGE){
+  if(currentPage < END_PAGE){
     currentPage++;
     updatePage();
   }
 }
 
 function prevPage(){
-  if (currentPage > START_PAGE){
+  if(currentPage > START_PAGE){
     currentPage--;
     updatePage();
   }
 }
 
-function downloadPDF(){
-  window.open(PDF_FILE);
-}
-
-function printPDF(){
-  pdfFrame.contentWindow.focus();
-  pdfFrame.contentWindow.print();
-}
-
-function rotatePDF(){
-  rotation += 90;
-  pdfFrame.style.transform = "rotate(" + rotation + "deg)";
-}
-
-function goHome(){
-  window.location.href = "index.html";
-}
-
-/* =========================
-   ✅ فلترة الفهرس: AR / FR / EN / الكل
-   ========================= */
-function setActiveFilterButton(lang){
-  document.getElementById("btnAR").classList.remove("active");
-  document.getElementById("btnFR").classList.remove("active");
-  document.getElementById("btnEN").classList.remove("active");
-  document.getElementById("btnALL").classList.remove("active");
-
-  if (lang === "ar") document.getElementById("btnAR").classList.add("active");
-  else if (lang === "fr") document.getElementById("btnFR").classList.add("active");
-  else if (lang === "en") document.getElementById("btnEN").classList.add("active");
-  else document.getElementById("btnALL").classList.add("active");
-}
-
-function applyIndexFilter(lang){
-  currentFilter = lang;
-  setActiveFilterButton(lang);
-
-  const items = document.querySelectorAll(".index-list li[data-lang]");
-  items.forEach(li => {
-    if (lang === "all"){
-      li.style.display = "flex";
-      return;
-    }
-    const langs = (li.dataset.lang || "").split(/\s+/).filter(Boolean);
-    li.style.display = langs.includes(lang) ? "flex" : "none";
-  });
-
-  highlightIndex();
-}
-
-/* =========================
-   ✅ المساعد (Tooltip): Hover + Tap
-   ========================= */
-(() => {
-  const btn = document.getElementById("assistantBtn");
-  const tip = document.getElementById("assistantTip");
-  if (!btn || !tip) return;
-
-  const show = () => {
-    tip.classList.add("show");
-    btn.setAttribute("aria-expanded", "true");
-  };
-
-  const hide = () => {
-    tip.classList.remove("show");
-    btn.setAttribute("aria-expanded", "false");
-  };
-
-  const toggle = () => {
-    const isOpen = tip.classList.contains("show");
-    if (isOpen) hide();
-    else show();
-  };
-
-  /* Hover (PC) */
-  btn.addEventListener("mouseenter", show);
-  btn.addEventListener("mouseleave", hide);
-  tip.addEventListener("mouseenter", show);
-  tip.addEventListener("mouseleave", hide);
-
-  /* Keyboard */
-  btn.addEventListener("focus", show);
-  btn.addEventListener("blur", hide);
-
-  /* Tap/Click */
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    toggle();
-  });
-
-  /* Close outside */
-  document.addEventListener("click", (e) => {
-    if (!btn.contains(e.target) && !tip.contains(e.target)) hide();
-  });
-
-  /* ESC */
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") hide();
-  });
-})();
-
-/* بدء الصفحة */
-applyIndexFilter("all");
 updatePage();
 </script>
 
