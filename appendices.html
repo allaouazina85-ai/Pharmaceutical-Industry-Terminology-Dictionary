@@ -337,24 +337,24 @@ iframe{
 @media (max-width: 900px){
   .viewer-wrapper{ grid-template-columns: 1fr; }
   .viewer-container{ order:1; }
-  .index-panel{ order:2; height: 250px; }
+  .index-panel{ order:2; height: 320px; }
   iframe{ height:58vh; }
 }
 
 @media (max-width: 520px){
-  body{ padding:8px 8px 0; }
+  body{ padding:10px 10px 0; }
 
   .header{
-    padding:10px 10px;
+    padding:14px 14px;
     grid-template-columns: 1fr auto;
     row-gap:6px;
   }
-  .header .welcome{ font-size:12px; }
-  .header h1{ font-size:18px; }
+  .header .welcome{ font-size:16px; }
+  .header h1{ font-size:24px; }
   .header .spacer{ display:none; }
 
-  .notice{ font-size:16px; padding:8px; }
-  .controls input{ width:100px; }
+  .notice{ font-size:16px; padding:12px; }
+  .controls input{ width:140px; }
 }
 </style>
 </head>
@@ -527,8 +527,7 @@ iframe{
       </div>
 
       <div class="pdf-wrap">
-       <iframe id="pdfFrame"
-          src="pdfjs/web/viewer.html?file=../../source.pdf#page=463">
+        <iframe id="pdfFrame" src="source.pdf#page=463"></iframe>
       </div>
 
     </div>
